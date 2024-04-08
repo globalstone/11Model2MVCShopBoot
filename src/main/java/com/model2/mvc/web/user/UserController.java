@@ -32,10 +32,10 @@ public class UserController {
 	public UserController(){
 		System.out.println(this.getClass());
 	}
-	
-	@Value("#{commonProperties['pageUnit']}")
+
+	@Value("${pageUnit}")
 	int pageUnit;
-	@Value("#{commonProperties['pageSize']}")
+	@Value("${pageSize}")
 	int pageSize;
 	
 	

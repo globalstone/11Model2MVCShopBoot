@@ -30,14 +30,14 @@ public class ProductController {
 	public ProductController() {
 		System.out.println(this.getClass());
 	}
-	
-	@Value("#{commonProperties['pageUnit']}")
+
+	@Value("${pageUnit}")
 	int pageUnit;
-	
-	@Value("#{commonProperties['pageSize']}")
+
+	@Value("${pageSize}")
 	int pageSize;
 
-	@Value("#{commonProperties['uploadTempDir']}")
+	@Value("${file.upload-dir}")
 	String uploadTempDir;
 	
 //	@RequestMapping("/addProduct.do")

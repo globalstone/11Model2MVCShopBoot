@@ -34,11 +34,11 @@ public class PurchaseController {
 	public PurchaseController() {
 		System.out.println(this.getClass());
 	}
-	
-	@Value("#{commonProperties['pageUnit']}")
+
+	@Value("${pageUnit}")
 	int pageUnit;
 
-	@Value("#{commonProperties['pageSize']}")
+	@Value("${pageSize}")
 	int pageSize;
 	
 //	@RequestMapping("/addPurchase.do")

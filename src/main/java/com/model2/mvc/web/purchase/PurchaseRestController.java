@@ -28,11 +28,11 @@ public class PurchaseRestController {
 	public PurchaseRestController() {
 		System.out.println(this.getClass());
 	}
-	
-	@Value("#{commonProperties['pageUnit']}")
+
+	@Value("${pageUnit}")
 	int pageUnit;
 
-	@Value("#{commonProperties['pageSize']}")
+	@Value("${pageSize}")
 	int pageSize;
 
 	@RequestMapping(value = "json/getPurchase",method = RequestMethod.GET)

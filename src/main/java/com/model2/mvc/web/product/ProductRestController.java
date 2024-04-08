@@ -25,11 +25,11 @@ public class ProductRestController {
 	public ProductRestController() {
 		System.out.println(this.getClass());
 	}
-	
-	@Value("#{commonProperties['pageUnit']}")
+
+	@Value("${pageUnit}")
 	int pageUnit;
-	
-	@Value("#{commonProperties['pageSize']}")
+
+	@Value("${pageSize}")
 	int pageSize;
 
 	@PostMapping(value = "json/addProduct")
