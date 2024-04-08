@@ -44,15 +44,15 @@
 	<script type="text/javascript">
 
 		// "가입" 이벤트 연결
-		$(function() {
-			$("#Join").on("click" , function() {
+		$(function () {
+			$("#Join").on("click", function () {
 				fncAddUser();
 			});
 		});
 
 		// "취소" 이벤트 처리 및 연결
-		$(function() {
-			$("a[href='#']").on("click" , function() {
+		$(function () {
+			$("a[href='#']").on("click", function () {
 				$("form")[0].reset();
 			});
 		});
@@ -63,31 +63,31 @@
 			var pw_confirm = $("input[name='password2']").val();
 			var name = $("input[name='userName']").val();
 
-			if(id == null || id.length < 1) {
+			if (id == null || id.length < 1) {
 				alert("아이디는 반드시 입력하셔야 합니다.");
 				return;
 			}
-			if(pw == null || pw.length < 1) {
+			if (pw == null || pw.length < 1) {
 				alert("패스워드는 반드시 입력하셔야 합니다.");
 				return;
 			}
-			if(pw_confirm == null || pw_confirm.length < 1) {
+			if (pw_confirm == null || pw_confirm.length < 1) {
 				alert("패스워드 확인은 반드시 입력하셔야 합니다.");
 				return;
 			}
-			if(name == null || name.length < 1) {
+			if (name == null || name.length < 1) {
 				alert("이름은 반드시 입력하셔야 합니다.");
 				return;
 			}
 
-			if(pw != pw_confirm) {
+			if (pw != pw_confirm) {
 				alert("비밀번호 확인이 일치하지 않습니다.");
 				$("input:text[name='password2']").focus();
 				return;
 			}
 
 			var value = "";
-			if($("input:text[name='phone2']").val() != "" && $("input:text[name='phone3']").val() != "") {
+			if ($("input:text[name='phone2']").val() != "" && $("input:text[name='phone3']").val() != "") {
 				var value = $("option:selected").val() + "-"
 						+ $("input[name='phone2']").val() + "-"
 						+ $("input[name='phone3']").val();
@@ -98,10 +98,10 @@
 		}
 
 		// "이메일" 유효성 검사 이벤트 처리 및 연결
-		$(function() {
-			$("input[name='email']").on("change" , function() {
+		$(function () {
+			$("input[name='email']").on("change", function () {
 				var email = $("input[name='email']").val();
-				if(email != "" && (email.indexOf('@') < 1 || email.indexOf('.') == -1)) {
+				if (email != "" && (email.indexOf('@') < 1 || email.indexOf('.') == -1)) {
 					alert("이메일 형식이 아닙니다.");
 				}
 			});
@@ -110,7 +110,7 @@
 		// 주민번호 유효성 검사
 		function checkSsn() {
 			var ssn = document.detailForm.ssn.value;
-			if(!PortalJuminCheck(ssn)) {
+			if (!PortalJuminCheck(ssn)) {
 				alert("잘못된 주민번호입니다.");
 				return false;
 			}
@@ -119,14 +119,14 @@
 		function PortalJuminCheck(fieldValue) {
 			var pattern = /^([0-9]{6})-?([0-9]{7})$/;
 			var num = fieldValue;
-			if(!pattern.test(num)) return false;
+			if (!pattern.test(num)) return false;
 			num = RegExp.$1 + RegExp.$2;
 
 			var sum = 0;
 			var last = num.charCodeAt(12) - 0x30;
 			var bases = "234567892345";
-			for(var i = 0; i < 12; i++) {
-				if(isNaN(num.substring(i, i+1))) return false;
+			for (var i = 0; i < 12; i++) {
+				if (isNaN(num.substring(i, i + 1))) return false;
 				sum += (num.charCodeAt(i) - 0x30) * (bases.charCodeAt(i) - 0x30);
 			}
 			var mod = sum % 11;
@@ -134,14 +134,55 @@
 		}
 
 		// "ID중복확인" 이벤트 처리 및 연결
-		$(function() {
-			$("#btn-info").on("click" , function() {
+		$(function () {
+			$("#btn-info").on("click", function () {
 				popWin = window.open("/user/checkDuplication.jsp",
 						"popWin",
 						"left=300,top=200,width=780,height=130,marginwidth=0,marginheight=0," +
 						"scrollbars=no,scrolling=no,menubar=no,resizable=no");
 			});
+			//인증하기 버튼을 눌렀을 때 동작
+			$("#emailAuth").click(function () {
+				const email = $("#email").val(); //사용자가 입력한 이메일 값 얻어오기
+
+				//Ajax로 전송
+				$.ajax({
+					url : '/user/EmailAuth',
+					data : {
+						email : email
+					},
+					type : 'POST',
+					dataType : 'json',
+					success : function(result) {
+						console.log("result : " + result);
+						$("#authCode").attr("disabled", false);
+						code = result;
+						alert("인증 코드가 입력하신 이메일로 전송 되었습니다.");
+					}
+				}); //End Ajax
+			})
+			;
+
+			$("#authCode").on("focusout", function() {
+				const inputCode = $("#authCode").val(); //인증번호 입력 칸에 작성한 내용 가져오기
+
+				console.log("입력코드 : " + inputCode);
+				console.log("인증코드 : " + code);
+
+				if(Number(inputCode) === code){
+					$("#emailAuthWarn").html('인증번호가 일치합니다.');
+					$("#emailAuthWarn").css('color', 'green');
+					$('#emailAuth').attr('disabled', true);
+					$('#email').attr('readonly', true);
+					$("#Join").attr("disabled", false);
+				}else{
+					$("#emailAuthWarn").html('인증번호가 불일치 합니다. 다시 확인해주세요!');
+					$("#emailAuthWarn").css('color', 'red');
+					$("#Join").attr("disabled", true);
+				}
+			});
 		});
+
 
 	</script>
 
@@ -247,6 +288,9 @@
 		<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
 		<div class="col-sm-4">
 			<input type="text" class="form-control" id="email" name="email" placeholder="이메일">
+			<button type="button" class="btn btn-primary" id="emailAuth">인증하기</button>
+			<input type="text" class="form-control" id="authCode" name="authCode" placeholder="인증 코드 6자리를 입력해주세요.">
+			<span id="emailAuthWarn"></span>
 		</div>
 	</div>
 
