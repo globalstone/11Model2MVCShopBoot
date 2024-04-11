@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 
 <!--  ///////////////////////// JSTL  ////////////////////////// -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,7 +9,7 @@
 <html lang="ko">
 	
 <head>
-	<meta charset="EUC-KR">
+	<meta charset="UTF-8">
 <%--	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>--%>
 <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">--%>
 <%--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>--%>
@@ -29,24 +29,24 @@
 	<jsp:include page="/layout/toolbar.jsp" />
    	<!-- ToolBar End /////////////////////////////////////-->
 
-	<!--  ¾Æ·¡ÀÇ ³»¿ëÀº http://getbootstrap.com/getting-started/  ÂüÁ¶ -->	
+	<!--  ì•„ëž˜ì˜ ë‚´ìš©ì€ http://getbootstrap.com/getting-started/  ì°¸ì¡° -->	
    	<div class="container ">
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Model2MVCShop </h1>
-        <p>J2SE , DBMS ,JDBC , Servlet & JSP, Java Framework , HTML5 , UI Framework ÇÐ½À ÈÄ Mini-Project ÁøÇà</p>
+        <p>J2SE , DBMS ,JDBC , Servlet & JSP, Java Framework , HTML5 , UI Framework í•™ìŠµ í›„ Mini-Project ì§„í–‰</p>
      </div>
     </div>
 
-	<!-- ÂüÁ¶ : http://getbootstrap.com/css/   : container part..... -->
+	<!-- ì°¸ì¡° : http://getbootstrap.com/css/   : container part..... -->
 	<div class="container">
-        <h3>³ªÆú·¹¿ËÀº ÀÌ·¸°Ô ¸»Çß´Ù.</h3>
-        <p>"¿À´Ã ³ªÀÇ ºÒÇàÀº ¾ðÁ¨°¡ ³»°¡ Àß¸ø º¸³½ ½Ã°£ÀÇ º¸º¹ÀÌ´Ù."</p>
-  	 	<h3>"... Àåº®Àº Àý½ÇÇÏ°Ô ¿øÇÏÁö ¾Ê´Â »ç¶÷µéÀ» °É·¯³»·Á°í Á¸ÀçÇÕ´Ï´Ù. Àåº®Àº. ´ç½ÅÀÌ ¾Æ´Ï¶ó '´Ù¸¥' »ç¶÷µéÀ» ¸ØÃß°Ô ÇÏ·Á°í °Å±â ÀÖ´Â °ÍÀÌÁö¿ä."</h3>
-         <h3>Çý±¤½º´Ô</h3>
-         <p>Çàº¹ÇÑ »îÀÇ ºñ°áÀº.</p>
-         <p>ÁÁ¾ÆÇÏ´Â ÀÏÀ» ÇÏ´Â °ÍÀÌ ¾Æ¸®¶ó,</p>
-         <p>Áö±Ý ÇÏ´Â ÀÏÀ» ÁÁ¾ÆÇÏ´Â °ÍÀÔ´Ï´Ù.</p>
+        <h3>ë‚˜í´ë ˆì˜¹ì€ ì´ë ‡ê²Œ ë§í–ˆë‹¤.</h3>
+        <p>"ì˜¤ëŠ˜ ë‚˜ì˜ ë¶ˆí–‰ì€ ì–¸ì  ê°€ ë‚´ê°€ ìž˜ëª» ë³´ë‚¸ ì‹œê°„ì˜ ë³´ë³µì´ë‹¤."</p>
+  	 	<h3>"... ìž¥ë²½ì€ ì ˆì‹¤í•˜ê²Œ ì›í•˜ì§€ ì•ŠëŠ” ì‚¬ëžŒë“¤ì„ ê±¸ëŸ¬ë‚´ë ¤ê³  ì¡´ìž¬í•©ë‹ˆë‹¤. ìž¥ë²½ì€. ë‹¹ì‹ ì´ ì•„ë‹ˆë¼ 'ë‹¤ë¥¸' ì‚¬ëžŒë“¤ì„ ë©ˆì¶”ê²Œ í•˜ë ¤ê³  ê±°ê¸° ìžˆëŠ” ê²ƒì´ì§€ìš”."</h3>
+         <h3>í˜œê´‘ìŠ¤ë‹˜</h3>
+         <p>í–‰ë³µí•œ ì‚¶ì˜ ë¹„ê²°ì€.</p>
+         <p>ì¢‹ì•„í•˜ëŠ” ì¼ì„ í•˜ëŠ” ê²ƒì´ ì•„ë¦¬ë¼,</p>
+         <p>ì§€ê¸ˆ í•˜ëŠ” ì¼ì„ ì¢‹ì•„í•˜ëŠ” ê²ƒìž…ë‹ˆë‹¤.</p>
   	 </div>
 
 </body>

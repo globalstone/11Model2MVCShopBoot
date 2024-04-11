@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- 
@@ -23,7 +23,7 @@
 
 <html>
 <head>
-<title>»óÇ° ¸ñ·ÏÁ¶È¸</title>
+<title>ìƒí’ˆ ëª©ë¡ì¡°íšŒ</title>
 <%--	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
 <%--	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
 <%--	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>--%>
@@ -63,9 +63,9 @@
 	$(function () {
 		$("#button-addon2").on("click", function () {
 			//Debug..
-			//alert(  $( "td.ct_btn01:contains('°Ë»ö')" ).html() );
+			//alert(  $( "td.ct_btn01:contains('ê²€ìƒ‰')" ).html() );
 			var menu = '${menu}';
-			$("#currentPage").val(1); // °Ë»ö ½Ã Ã¹ ÆäÀÌÁö·Î ¼³Á¤
+			$("#currentPage").val(1); // ê²€ìƒ‰ ì‹œ ì²« í˜ì´ì§€ë¡œ ì„¤ì •
 			fncGetUserList(1,menu);
 		});
 	});
@@ -74,7 +74,7 @@
 
 			var isLoading = false;
 			var isEndOfData = false;
-			var currentPage = 2;  // ÇöÀç ÆäÀÌÁö¸¦ 2·Î ¼³Á¤
+			var currentPage = 2;  // í˜„ì¬ í˜ì´ì§€ë¥¼ 2ë¡œ ì„¤ì •
 			var pageSize = 8;
 			let dallor = 36;
 
@@ -158,7 +158,7 @@
 								return;
 							}
 							for (var i = 0; i < prod.length; i++) {
-								loadProduct(i, prod[i]);  // °¢ »óÇ°À» ·ÎµåÇÏ´Â ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+								loadProduct(i, prod[i]);  // ê° ìƒí’ˆì„ ë¡œë“œí•˜ëŠ” í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 							}
 							isLoading = false;
 							currentPage++;
@@ -169,14 +169,14 @@
 					});
 				}
 			}
-			// loadMoreProducts();  // ÃÊ±â¿¡ ÇÑ ¹ø µ¥ÀÌÅÍ ·Îµå
+			// loadMoreProducts();  // ì´ˆê¸°ì— í•œ ë²ˆ ë°ì´í„° ë¡œë“œ
 			var $window = $(window);
 			var $document = $(document);
 
 			$window.scroll(function() {
-				var scrollTop = $window.scrollTop(); // ½ºÅ©·Ñ¹Ù À§Ä¡
-				var viewportHeight = window.innerHeight; // ºê¶ó¿ìÀú Ã¢ÀÇ ºäÆ÷Æ® ³ôÀÌ
-				var documentHeight = $document.height(); // ÀüÃ¼ ¹®¼­ÀÇ ³ôÀÌ
+				var scrollTop = $window.scrollTop(); // ìŠ¤í¬ë¡¤ë°” ìœ„ì¹˜
+				var viewportHeight = window.innerHeight; // ë¸Œë¼ìš°ì € ì°½ì˜ ë·°í¬íŠ¸ ë†’ì´
+				var documentHeight = $document.height(); // ì „ì²´ ë¬¸ì„œì˜ ë†’ì´
 
 				console.log("Scroll Top: ", scrollTop);
 				console.log("Viewport Height: ", viewportHeight);
@@ -184,7 +184,7 @@
 
 				if (scrollTop + viewportHeight >= documentHeight * 0.7) {
 					console.log("Reached the bottom of the page");
-					// µ¥ÀÌÅÍ ·Îµå ·ÎÁ÷À» ¿©±â¿¡ Ãß°¡
+					// ë°ì´í„° ë¡œë“œ ë¡œì§ì„ ì—¬ê¸°ì— ì¶”ê°€
 					loadMoreProducts();
 				}
 			});
@@ -193,18 +193,18 @@
 
 			$(document).ready(function () {
 				$('.card-footer').each(function () {
-					var timestamp = $(this).text(); // prod.regDate °ªÀ» °¡Á®¿É´Ï´Ù.
-					var date = new Date(timestamp); // Unix timestamp¸¦ Date °´Ã¼·Î º¯È¯ÇÕ´Ï´Ù.
+					var timestamp = $(this).text(); // prod.regDate ê°’ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
+					var date = new Date(timestamp); // Unix timestampë¥¼ Date ê°ì²´ë¡œ ë³€í™˜í•©ë‹ˆë‹¤.
 					var formattedDate = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
-					$(this).text(formattedDate); // 'yyyy-mm-dd' Çü½ÄÀÇ ³¯Â¥·Î º¯È¯ÇÑ °ªÀ» ¼³Á¤ÇÕ´Ï´Ù.
+					$(this).text(formattedDate); // 'yyyy-mm-dd' í˜•ì‹ì˜ ë‚ ì§œë¡œ ë³€í™˜í•œ ê°’ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 				});
 			});
 
 			$(document).ready(function() {
-				// ÀüÃ¼ »óÇ° µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¹è¿­
+				// ì „ì²´ ìƒí’ˆ ë°ì´í„°ë¥¼ ì €ì¥í•  ë°°ì—´
 				var allProducts = [];
 
-				// ¼­¹ö¿¡¼­ ÀüÃ¼ »óÇ° µ¥ÀÌÅÍ¸¦ °¡Á®¿É´Ï´Ù.
+				// ì„œë²„ì—ì„œ ì „ì²´ ìƒí’ˆ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
 				$.ajax({
 					url: "/product/json/listProduct/all",
 					method: "GET",
@@ -213,17 +213,17 @@
 						if (Array.isArray(data)) {
 							allProducts = data;
 
-							// ÀÚµ¿¿Ï¼º ±â´ÉÀ» Àû¿ëÇÕ´Ï´Ù.
+							// ìë™ì™„ì„± ê¸°ëŠ¥ì„ ì ìš©í•©ë‹ˆë‹¤.
 							$("#productInput").autocomplete({
 								source: allProducts,
 								minLength: 1
 							});
 						} else {
-							console.error("µ¥ÀÌÅÍ Çü½ÄÈ®ÀÎ¿ë :", data);
+							console.error("ë°ì´í„° í˜•ì‹í™•ì¸ìš© :", data);
 						}
 					},
 					error: function () {
-						console.error("¸øºÒ·¯¿ÔÀ½ ");
+						console.error("ëª»ë¶ˆëŸ¬ì™”ìŒ ");
 					}
 				});
 			});
@@ -245,8 +245,8 @@
 				<div class="input-group mb-3">
 					<select name="searchCondition"
 							class="ct_input_g" style="width: 80px">
-						<option value="1" ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" } >»óÇ°¸í</option>
-						<input type="text" id = "productInput" name="searchKeyword" value="${ search.searchKeyword }" class="form-control" placeholder="»óÇ°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" aria-label="Recipient's username" aria-describedby="button-addon2">
+						<option value="1" ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" } >ìƒí’ˆëª…</option>
+						<input type="text" id = "productInput" name="searchKeyword" value="${ search.searchKeyword }" class="form-control" placeholder="ìƒí’ˆëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”" aria-label="Recipient's username" aria-describedby="button-addon2">
 						<button class="btn btn-primary" type="button" id="button-addon2">Search</button>
 						<input type= "hidden" id = "currentPage" name="currentPage" value = ""/>
 					</select>
@@ -307,8 +307,8 @@
 				<div class="input-group mb-3">
 					<select name="searchCondition"
 							class="ct_input_g" style="width: 80px">
-						<option value="1" ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" } >»óÇ°¸í</option>
-						<input type="text" id = "productInput" name="searchKeyword" value="${ search.searchKeyword }" class="form-control" placeholder="»óÇ°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä" aria-label="Recipient's username" aria-describedby="button-addon2">
+						<option value="1" ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" } >ìƒí’ˆëª…</option>
+						<input type="text" id = "productInput" name="searchKeyword" value="${ search.searchKeyword }" class="form-control" placeholder="ìƒí’ˆëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”" aria-label="Recipient's username" aria-describedby="button-addon2">
 						<button class="btn btn-primary" type="button" id="button-addon2">Search</button>
 						<input type= "hidden" id = "currentPage" name="currentPage" value = ""/>
 					</select>
@@ -344,17 +344,17 @@
 							</c:if>
 							<c:if test="${ ! empty prod.proTranCode }">
 								<c:if test="${ fn:trim(prod.proTranCode)==1}">
-									±¸¸Å¿Ï·á <a href="/purchase/updateTranCode?prodNo=${ prod.prodNo }&tranCode=2">¹è¼ÛÇÏ±â</a>
+									êµ¬ë§¤ì™„ë£Œ <a href="/purchase/updateTranCode?prodNo=${ prod.prodNo }&tranCode=2">ë°°ì†¡í•˜ê¸°</a>
 								</c:if>
 								<c:if test="${ fn:trim(prod.proTranCode)==2}">
-									¹è¼ÛÁß
+									ë°°ì†¡ì¤‘
 								</c:if>
 								<c:if test="${ fn:trim(prod.proTranCode)==3}">
-									¹è¼Û¿Ï·á
+									ë°°ì†¡ì™„ë£Œ
 								</c:if>
 							</c:if>
 							<c:if test="${ empty prod.proTranCode }">
-								ÆÇ¸ÅÁß
+								íŒë§¤ì¤‘
 							</c:if>
 						</div>
 						<div class="card-footer text-muted">

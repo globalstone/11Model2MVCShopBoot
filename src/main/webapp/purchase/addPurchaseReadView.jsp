@@ -1,5 +1,5 @@
 <%-- <%@page import="com.model2.mvc.service.domain.Purchase"%> --%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%-- 
 <%
 Purchase vo = (Purchase)request.getAttribute("addVO");
@@ -14,46 +14,46 @@ Purchase vo = (Purchase)request.getAttribute("addVO");
 
 <form name="updatePurchase" action="/purchase/updatePurchase/${addVO.tranNo }" method="post">
 
-´ÙÀ½°ú °°ÀÌ ±¸¸Å°¡ µÇ¾ú½À´Ï´Ù.
+ë‹¤ìŒê³¼ ê°™ì´ êµ¬ë§¤ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.
 
 <table border=1>
 	<tr>
-		<td>¹°Ç°¹øÈ£</td>
+		<td>ë¬¼í’ˆë²ˆí˜¸</td>
 		<td>${ addVO.purchaseProd.prodNo }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>±¸¸ÅÀÚ¾ÆÀÌµð</td>
+		<td>êµ¬ë§¤ìžì•„ì´ë””</td>
 		<td>${ addVO.buyer.userId }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>±¸¸Å¹æ¹ý</td>
+		<td>êµ¬ë§¤ë°©ë²•</td>
 		<td>${ addVO.paymentOption }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>±¸¸ÅÀÚÀÌ¸§</td>
+		<td>êµ¬ë§¤ìžì´ë¦„</td>
 		<td>${ addVO.receiverName }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>±¸¸ÅÀÚ¿¬¶ôÃ³</td>
+		<td>êµ¬ë§¤ìžì—°ë½ì²˜</td>
 		<td>${ addVO.receiverPhone }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>±¸¸ÅÀÚÁÖ¼Ò</td>
+		<td>êµ¬ë§¤ìžì£¼ì†Œ</td>
 		<td>${ addVO.divyAddr }</td>
 		<td></td>
 	</tr>
 		<tr>
-		<td>±¸¸Å¿äÃ»»çÇ×</td>
+		<td>êµ¬ë§¤ìš”ì²­ì‚¬í•­</td>
 		<td>${ addVO.divyRequest }</td>
 		<td></td>
 	</tr>
 	<tr>
-		<td>¹è¼ÛÈñ¸ÁÀÏÀÚ</td>
+		<td>ë°°ì†¡í¬ë§ì¼ìž</td>
 		<td>${ addVO.divyDate }</td>
 		<td></td>
 	</tr>

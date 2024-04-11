@@ -1,11 +1,11 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 
 
 <!--  ///////////////////////// JSTL  ////////////////////////// -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- ///////////////////////////// �α��ν� Forward  /////////////////////////////////////// -->
+<!-- ///////////////////////////// 로그인시 Forward  /////////////////////////////////////// -->
 <c:if test="${ ! empty user }">
 	<jsp:forward page="main.jsp"/>
 </c:if>
@@ -17,9 +17,9 @@
 <html lang="ko">
 	
 <head>
-	<meta charset="EUC-KR">
+	<meta charset="UTF-8">
 	
-	<!-- ���� : http://getbootstrap.com/css/   -->
+	<!-- 참조 : http://getbootstrap.com/css/   -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
@@ -61,7 +61,7 @@
 
 	<!-- Bootstrap 4 JS bundle (includes Popper.js) -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-	<!-- īī���� �α��� JS -->
+	<!-- 카카오톡 로그인 JS -->
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 
@@ -74,10 +74,10 @@
    	<!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 		//<![CDATA[
-		// ����� ���� JavaScript Ű�� ������ �ּ���.
+		// 사용할 앱의 JavaScript 키를 설정해 주세요.
 		$(document).ready(function() {
 			Kakao.init('156ad557ed4df3d2e6fa9905dae81a56');
-			// īī�� �α��� ��ư�� �����մϴ�.
+			// 카카오 로그인 버튼을 생성합니다.
 			Kakao.Auth.createLoginButton({
 				container: '#kakao-login-btn',
 				success: function (authObj) {
@@ -93,27 +93,27 @@
 		});
 		//]]>
 		$(function () {
-			// DOM Object GET 3���� ��� ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			// DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("#userId").focus();
 
-			// �α��� ó�� �Լ�
+			// 로그인 처리 함수
 			function processLogin() {
 				var id = $("input:text").val();
 				var pw = $("input:password").val();
 
 				if (id == null || id.length < 1) {
-					alert('ID �� �Է����� �����̽��ϴ�.');
+					alert('ID 를 입력하지 않으셨습니다.');
 					$("input:text").focus();
 					return;
 				}
 
 				if (pw == null || pw.length < 1) {
-					alert('�н����带 �Է����� �����̽��ϴ�.');
+					alert('패스워드를 입력하지 않으셨습니다.');
 					$("input:password").focus();
 					return;
 				}
 
-				////////////////////////////////////////////////// �߰� , ����� �κ� ////////////////////////////////////////////////////////////
+				////////////////////////////////////////////////// 추가 , 변경된 부분 ////////////////////////////////////////////////////////////
 				//$("form").attr("method","POST").attr("action","/user/login").attr("target","_parent").submit();
 				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -138,41 +138,41 @@
 								//alert( JSONData != null );
 
 								if (JSONData != null) {
-									//[���1]
+									//[방법1]
 									$(window.parent.document.location).attr("href","/index.jsp");
 
-									//[���2]
+									//[방법2]
 									// window.parent.document.location.reload();
 
-									//[���3]
+									//[방법3]
 									// $(window.parent.frames["topFrame"].document.location).attr("href", "/layout/top.jsp");
 									// $(window.parent.frames["leftFrame"].document.location).attr("href", "/layout/left.jsp");
 									// $(window.parent.frames["rightFrame"].document.location).attr("href", "/user/getUser?userId=" + JSONData.userId);
 
-									//==> ��� 1 , 2 , 3 ��� ����
+									//==> 방법 1 , 2 , 3 결과 학인
 								} else {
-									alert("���̵� , �н����带 Ȯ���Ͻð� �ٽ� �α���...");
+									alert("아이디 , 패스워드를 확인하시고 다시 로그인...");
 								}
 							}
 						});
 			}
 
 			$("input").on("keypress", function (event) {
-				if (event.which == 13) { // 13 == ����Ű
+				if (event.which == 13) { // 13 == 엔터키
 					event.preventDefault();
 					processLogin();
 				}
 			});
 
-			// "Login"  Event ����
+			// "Login"  Event 연결
 			$("#signIn").on("click", function (event) {
 				event.preventDefault();
 				processLogin();
 			});
 		});
-		//============= ȸ�������� ȭ���̵� =============
+		//============= 회원원가입 화면이동 =============
 		$( function() {
-			//==> �߰��Ⱥκ� : "addUser"  Event ����
+			//==> 추가된부분 : "addUser"  Event 연결
 			$("#signUp").on("click", function(event) {
 				event.preventDefault();
 				self.location = "/user/addUser";
@@ -208,101 +208,101 @@
 	</nav>
    	<!-- ToolBar End /////////////////////////////////////-->
    	
-	<!--  ȭ�鱸�� div Start /////////////////////////////////////-->
+	<!--  화면구성 div Start /////////////////////////////////////-->
 	<div class="container mt-5">
 		
-		<!-- �ٴܷ��̾ƿ�  Start /////////////////////////////////////-->
+		<!-- 다단레이아웃  Start /////////////////////////////////////-->
 		<div class="row">
 	
-			<!--  Menu ���� Start /////////////////////////////////////-->     	
+			<!--  Menu 구성 Start /////////////////////////////////////-->     	
 			<div class="col-md-3">
 		        
-		       	<!--  ȸ������ ��Ͽ� ���� -->
+		       	<!--  회원관리 목록에 제목 -->
 <%--				<div class="panel panel-primary">--%>
 <%--					<div class="panel-heading">--%>
-<%--						<i class="glyphicon glyphicon-heart"></i> ȸ������--%>
+<%--						<i class="glyphicon glyphicon-heart"></i> 회원관리--%>
 <%--         			</div>--%>
-<%--         			<!--  ȸ������ ������ -->--%>
+<%--         			<!--  회원관리 아이템 -->--%>
 <%--					<ul class="list-group">--%>
 <%--						 <li class="list-group-item">--%>
-<%--						 	<a class="disabled" href="#" tabindex="-1" aria-disabled="true">����������ȸ</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
+<%--						 	<a class="disabled" href="#" tabindex="-1" aria-disabled="true">개인정보조회</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
 <%--						 </li>--%>
 <%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">ȸ��������ȸ</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
+<%--						 	<a href="#">회원정보조회</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
 <%--						 </li>--%>
 <%--					</ul>--%>
 <%--		        </div>--%>
 				<div class="list-group mb-5">
-					<a href="#" class="list-group-item list-group-item-action active disabled">ȸ�� ����</a>
-					<a href="#" class="list-group-item list-group-item-action">�������� ��ȸ</a>
-					<a href="#" class="list-group-item list-group-item-action">ȸ������ ��ȸ</a>
+					<a href="#" class="list-group-item list-group-item-action active disabled">회원 관리</a>
+					<a href="#" class="list-group-item list-group-item-action">개인정보 조회</a>
+					<a href="#" class="list-group-item list-group-item-action">회원정보 조회</a>
 				</div>
                
                
 <%--				<div class="panel panel-primary">--%>
 <%--					<div class="panel-heading">--%>
-<%--							<i class="glyphicon glyphicon-briefcase"></i> �ǸŻ�ǰ����--%>
+<%--							<i class="glyphicon glyphicon-briefcase"></i> 판매상품관리--%>
 <%--         			</div>--%>
 <%--					<ul class="list-group">--%>
 <%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">�ǸŻ�ǰ���</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
+<%--						 	<a href="#">판매상품등록</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
 <%--						 </li>--%>
 <%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">�ǸŻ�ǰ����</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
+<%--						 	<a href="#">판매상품관리</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
 <%--						 </li>--%>
 <%--					</ul>--%>
 <%--		        </div>--%>
 				<div class="list-group mb-5">
-					<a href="#" class="list-group-item list-group-item-action active disabled">�ǸŻ�ǰ ����</a>
-					<a href="#" class="list-group-item list-group-item-action">�ǸŻ�ǰ���</a>
-					<a href="#" class="list-group-item list-group-item-action">�ǸŻ�ǰ����</a>
+					<a href="#" class="list-group-item list-group-item-action active disabled">판매상품 관리</a>
+					<a href="#" class="list-group-item list-group-item-action">판매상품등록</a>
+					<a href="#" class="list-group-item list-group-item-action">판매상품관리</a>
 				</div>
                
                
 <%--				<div class="panel panel-primary">--%>
 <%--					<div class="panel-heading">--%>
-<%--							<i class="glyphicon glyphicon-shopping-cart"></i> ��ǰ����--%>
+<%--							<i class="glyphicon glyphicon-shopping-cart"></i> 상품구매--%>
 <%--	    			</div>--%>
 <%--					<ul class="list-group">--%>
-<%--						 <li class="list-group-item"><a href="#">��ǰ�˻�</a></li>--%>
+<%--						 <li class="list-group-item"><a href="#">상품검색</a></li>--%>
 <%--						  <li class="list-group-item">--%>
-<%--						  	<a href="#">�����̷���ȸ</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
+<%--						  	<a href="#">구매이력조회</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
 <%--						  </li>--%>
 <%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">�ֱٺ���ǰ</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
+<%--						 	<a href="#">최근본상품</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
 <%--						 </li>--%>
 <%--					</ul>--%>
 <%--				</div>--%>
 				<div class="list-group mb-5">
-					<a href="#" class="list-group-item list-group-item-action active disabled">��ǰ����</a>
-					<a href="#" class="list-group-item list-group-item-action">��ǰ�˻�</a>
-					<a href="#" class="list-group-item list-group-item-action">�����̷���ȸ</a>
-					<a href="#" class="list-group-item list-group-item-action">�ֱ� �� ��ǰ</a>
+					<a href="#" class="list-group-item list-group-item-action active disabled">상품구매</a>
+					<a href="#" class="list-group-item list-group-item-action">상품검색</a>
+					<a href="#" class="list-group-item list-group-item-action">구매이력조회</a>
+					<a href="#" class="list-group-item list-group-item-action">최근 본 상품</a>
 				</div>
 			</div>
-			<!--  Menu ���� end /////////////////////////////////////-->   
+			<!--  Menu 구성 end /////////////////////////////////////-->   
 
 	 	 	<!--  Main start /////////////////////////////////////-->   		
 	 	 	<div class="col-md-9">
 				<div class="jumbotron">
 			  		<h1>Model2 MVC Shop</h1>
-			  		<p>�α��� �� ��밡��...</p>
-			  		<p>�α��� �� �˻��� �����մϴ�.</p>
-					<!-- īī�� -->
+			  		<p>로그인 후 사용가능...</p>
+			  		<p>로그인 전 검색만 가능합니다.</p>
+					<!-- 카카오 -->
 				</div>
 				<div id="kakao"></div>
 				<a class="p-2" id = "kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=8df753a4b334db7b6d9d4824b176caf5&redirect_uri=http://192.168.0.17:8080/kakao/login&response_type=code">
 				</a>
-			  		<p>ȸ������ �ϼ���.</p>
+			  		<p>회원가입 하세요.</p>
 			  	</div>
 	        </div>
 	   	 	<!--  Main end /////////////////////////////////////-->   		
 	 	 	
 		</div>
-		<!-- �ٴܷ��̾ƿ�  end /////////////////////////////////////-->
+		<!-- 다단레이아웃  end /////////////////////////////////////-->
 		
 	</div>
-	<!--  ȭ�鱸�� div end /////////////////////////////////////-->
+	<!--  화면구성 div end /////////////////////////////////////-->
 
 </body>
 

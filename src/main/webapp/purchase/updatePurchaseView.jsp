@@ -1,6 +1,6 @@
 <%@page import="com.model2.mvc.service.domain.Purchase"%>
 <%@page import="com.model2.mvc.service.purchase.PurchaseService"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%--
 <%
 Purchase vo = (Purchase)request.getAttribute("updateview");
@@ -10,7 +10,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 <head>
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<title>±¸¸ÅÁ¤º¸ ¼öÁ¤</title>
+<title>êµ¬ë§¤ì •ë³´ ìˆ˜ì •</title>
 
 <script type="text/javascript" src="../javascript/calendar.js">
 </script>
@@ -29,7 +29,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left: 10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="93%" class="ct_ttl01">±¸¸ÅÁ¤º¸¼öÁ¤</td>
+					<td width="93%" class="ct_ttl01">êµ¬ë§¤ì •ë³´ìˆ˜ì •</td>
 					<td width="20%" align="right">&nbsp;</td>
 				</tr>
 			</table>
@@ -45,7 +45,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚ¾ÆÀÌµğ</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì•„ì´ë””</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ updateview.buyer.userId }</td>
 		<input type="hidden" name="buyerId" value="${ updateview.buyer.userId }">
@@ -54,13 +54,13 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸Å¹æ¹ı</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ë°©ë²•</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<select 	name="paymentOption" 	class="ct_input_g" style="width: 100px; height: 19px" 
 							maxLength="20">
-				<option value="1" selected="selected">Çö±İ±¸¸Å</option>
-				<option value="2">½Å¿ë±¸¸Å</option>
+				<option value="1" selected="selected">í˜„ê¸ˆêµ¬ë§¤</option>
+				<option value="2">ì‹ ìš©êµ¬ë§¤</option>
 			</select>
 		</td>
 	</tr>
@@ -68,7 +68,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚÀÌ¸§</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì´ë¦„</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverName" 	class="ct_input_g" style="width: 100px; height: 19px" 
@@ -79,7 +79,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚ ¿¬¶ôÃ³</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ì ì—°ë½ì²˜</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverPhone" class="ct_input_g" style="width: 100px; height: 19px" 
@@ -91,7 +91,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚÁÖ¼Ò</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì£¼ì†Œ</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="divyAddr" class="ct_input_g" style="width: 100px; height: 19px" 
@@ -102,7 +102,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸Å¿äÃ»»çÇ×</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìš”ì²­ì‚¬í•­</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="divyRequest" 	class="ct_input_g" style="width: 100px; height: 19px" 
@@ -113,7 +113,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">¹è¼ÛÈñ¸ÁÀÏÀÚ</td>
+		<td width="104" class="ct_write">ë°°ì†¡í¬ë§ì¼ì</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td width="200" class="ct_write01">
 			<input type="text" readonly="readonly" name="divyDate" class="ct_input_g" 
@@ -137,7 +137,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 					<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 				</td>
 				<td background="/images/ct_btnbg02.gif" class="ct_btn01"	style="padding-top: 3px;">
-					<input type="submit" value="¼öÁ¤"/>
+					<input type="submit" value="ìˆ˜ì •"/>
 				</td>
 				<td width="14" height="23">
 					<img src="/images/ct_btnbg03.gif" width="14" height="23"/>
@@ -147,7 +147,7 @@ Purchase vo = (Purchase)request.getAttribute("updateview");
 					<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 				</td>
 				<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
-					<a href="javascript:history.go(-1)">Ãë¼Ò</a>
+					<a href="javascript:history.go(-1)">ì·¨ì†Œ</a>
 				</td>
 				<td width="14" height="23">
 					<img src="/images/ct_btnbg03.gif" width="14" height="23"/>

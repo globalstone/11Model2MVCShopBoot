@@ -4,7 +4,7 @@
 <%@page import="com.model2.mvc.service.domain.*"%>
 <%@page import="com.model2.mvc.common.Page"%>
 --%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- 
@@ -16,7 +16,7 @@
 --%>
 <html>
 <head>
-<title>±¸¸Å ¸ñ·ÏÁ¶È¸</title>
+<title>êµ¬ë§¤ ëª©ë¡ì¡°íšŒ</title>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -43,18 +43,18 @@
 			<div class="row">
 				<div class = "col-lg-12">
 					<div class = "page-header">
-						<h1 id = "navs">±¸¸ÅÀÌ·Â</h1>
+						<h1 id = "navs">êµ¬ë§¤ì´ë ¥</h1>
 
 <table class="table table-hover">
 	<thead>
 	<tr class="table-dark">
 		<th scope="row">No</th>
-		<td>È¸¿øID</td>
-		<td>È¸¿ø¸í</td>
-		<td>ÀüÈ­¹øÈ£</td>
-		<td>»óÇ°Á¤º¸</td>
-		<td>¹è¼ÛÇöÈ²</td>
-		<td>Á¤º¸¼öÁ¤</td>
+		<td>íšŒì›ID</td>
+		<td>íšŒì›ëª…</td>
+		<td>ì „í™”ë²ˆí˜¸</td>
+		<td>ìƒí’ˆì •ë³´</td>
+		<td>ë°°ì†¡í˜„í™©</td>
+		<td>ì •ë³´ìˆ˜ì •</td>
 	</tr>
 	</thead>
 	<c:set var="i" value="0" />
@@ -66,28 +66,28 @@
 		<td><a href="/user/getUser?userId=${ vo.buyer.userId }">${ vo.buyer.userId }</a></td>
 		<td>${ vo.receiverName }</td>
 		<td>${ vo.receiverPhone }</td>
-		<td><a href="/product/getProduct/${vo.purchaseProd.prodNo }/search">»óÇ°Á¤º¸</a></td>
+		<td><a href="/product/getProduct/${vo.purchaseProd.prodNo }/search">ìƒí’ˆì •ë³´</a></td>
 		<td><c:if test="${ ! empty vo.tranCode }">
 			<c:if test="${ fn:trim(vo.tranCode) == 1 }">
-				ÇöÀç±¸¸Å¿Ï·á»óÅÂ ÀÔ´Ï´Ù.
+				í˜„ìž¬êµ¬ë§¤ì™„ë£Œìƒíƒœ ìž…ë‹ˆë‹¤.
 			</c:if>
 			<c:if test="${ fn:trim(vo.tranCode) == 2 }" >
-				ÇöÀç¹è¼ÛÁß»óÅÂ ÀÔ´Ï´Ù.
+				í˜„ìž¬ë°°ì†¡ì¤‘ìƒíƒœ ìž…ë‹ˆë‹¤.
 			</c:if>
 			<c:if test="${ fn:trim(vo.tranCode) == 3 }" >
-				ÇöÀç¹è¼Û¿Ï·á»óÅÂ ÀÔ´Ï´Ù.
+				í˜„ìž¬ë°°ì†¡ì™„ë£Œìƒíƒœ ìž…ë‹ˆë‹¤.
 			</c:if>
 		</c:if></td>
 		<td><c:if test="${ !empty vo.tranCode }" >
 			<c:if test="${ fn:trim(vo.tranCode) == 2 }" >
-				<a href="/purchase/updateTranCode?prodNo=${ vo.purchaseProd.prodNo }&tranCode=3">¹°°ÇµµÂø</a>
+				<a href="/purchase/updateTranCode?prodNo=${ vo.purchaseProd.prodNo }&tranCode=3">ë¬¼ê±´ë„ì°©</a>
 			</c:if>
 		</c:if>
 		</td>
 	</tr>
 	</c:forEach>
 	</tbody>
-<!--  ÆäÀÌÁö Navigator ³¡ -->
+<!--  íŽ˜ì´ì§€ Navigator ë -->
 					</div>
 				</div>
 			</div>

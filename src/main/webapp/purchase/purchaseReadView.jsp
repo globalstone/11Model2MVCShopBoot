@@ -1,5 +1,5 @@
 <%@page import="com.model2.mvc.service.domain.Purchase"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%-- 
 <%
 Purchase vo = (Purchase)request.getAttribute("purVo");
@@ -7,7 +7,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 --%>
 <html>
 <head>
-<title>±¸¸Å»ó¼¼Á¶È¸</title>
+<title>êµ¬ë§¤ìƒì„¸ì¡°íšŒ</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
@@ -23,7 +23,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left: 10px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="93%" class="ct_ttl01">±¸¸Å»ó¼¼Á¶È¸</td>
+					<td width="93%" class="ct_ttl01">êµ¬ë§¤ìƒì„¸ì¡°íšŒ</td>
 					<td width="20%" align="right">&nbsp;</td>
 				</tr>
 			</table>
@@ -40,7 +40,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			¹°Ç°¹øÈ£ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			ë¬¼í’ˆë²ˆí˜¸ <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
@@ -58,7 +58,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			±¸¸ÅÀÚ¾ÆÀÌµğ <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			êµ¬ë§¤ìì•„ì´ë”” <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.buyer.userId }</td>
@@ -68,7 +68,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 	</tr>
 
 	<tr>
-		<td width="104" class="ct_write">±¸¸Å¹æ¹ı</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ë°©ë²•</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			${ purVo.paymentOption }
@@ -78,7 +78,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚÀÌ¸§</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì´ë¦„</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.receiverName }</td>
 	</tr>
@@ -86,7 +86,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚ¿¬¶ôÃ³</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì—°ë½ì²˜</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.receiverPhone }</td>
 	</tr>
@@ -94,7 +94,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸ÅÀÚÁÖ¼Ò</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìì£¼ì†Œ</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.divyAddr }</td>
 	</tr>
@@ -102,7 +102,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">±¸¸Å¿äÃ»»çÇ×</td>
+		<td width="104" class="ct_write">êµ¬ë§¤ìš”ì²­ì‚¬í•­</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.divyRequest }</td>
 	</tr>
@@ -110,7 +110,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">¹è¼ÛÈñ¸ÁÀÏ</td>
+		<td width="104" class="ct_write">ë°°ì†¡í¬ë§ì¼</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.divyDate }</td>
 	</tr>
@@ -120,7 +120,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 	</tr>
 
 	<tr>
-		<td width="104" class="ct_write">ÁÖ¹®ÀÏ</td>
+		<td width="104" class="ct_write">ì£¼ë¬¸ì¼</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">${ purVo.orderDate }</td>
 	</tr>
@@ -141,7 +141,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01"	style="padding-top: 3px;">
-						<a href="/purchase/updatePurchase/${ purVo.tranNo }">¼öÁ¤</a>
+						<a href="/purchase/updatePurchase/${ purVo.tranNo }">ìˆ˜ì •</a>
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>
@@ -151,7 +151,7 @@ Purchase vo = (Purchase)request.getAttribute("purVo");
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01"	style="padding-top: 3px;">
-						<a href="javascript:history.go(-1);">È®ÀÎ</a>
+						<a href="javascript:history.go(-1);">í™•ì¸</a>
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif"width="14" height="23"/>

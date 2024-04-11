@@ -1,32 +1,37 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <html>
 <head>
-	<title>»óÇ°µî·Ï</title>
+	<title>ìƒí’ˆë“±ë¡</title>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script type="text/javascript">
 		function fncAddProduct(){
-			//Form À¯È¿¼º °ËÁõ
+			//Form ìœ íš¨ì„± ê²€ì¦
 			var name = document.detailForm.prodName.value;
 			var detail = document.detailForm.prodDetail.value;
 			var manuDate = document.detailForm.manuDate.value;
 			var price = document.detailForm.price.value;
+			var file = document.detailForm.uploadFile.value;
 
 			if(name == null || name.length<1){
-				alert("»óÇ°¸íÀº ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆëª…ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(detail == null || detail.length<1){
-				alert("»óÇ°»ó¼¼Á¤º¸´Â ¹İµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù.");
+				alert("ìƒí’ˆìƒì„¸ì •ë³´ëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(manuDate == null || manuDate.length<1){
-				alert("Á¦Á¶ÀÏÀÚ´Â ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ì œì¡°ì¼ìëŠ” ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 			if(price == null || price.length<1){
-				alert("°¡°İÀº ¹İµå½Ã ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.");
+				alert("ê°€ê²©ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
+				return;
+			}
+			if(file == null || file.length<1){
+				alert("ê°€ê²©ì€ ë°˜ë“œì‹œ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.");
 				return;
 			}
 
@@ -222,30 +227,30 @@
 	<div class="container" id = "center-test">
 
 		<div class="page-header text-center">
-			<h3 class=" text-info">»óÇ°Á¤º¸ µî·Ï</h3>
-			<h5 class="text-muted">»óÇ° Á¤º¸¸¦ <strong class="text-danger">ÃÖ½ÅÁ¤º¸·Î ÀÔ·Â</strong>ÇØ ÁÖ¼¼¿ä.</h5>
+			<h3 class=" text-info">ìƒí’ˆì •ë³´ ë“±ë¡</h3>
+			<h5 class="text-muted">ìƒí’ˆ ì •ë³´ë¥¼ <strong class="text-danger">ìµœì‹ ì •ë³´ë¡œ ì…ë ¥</strong>í•´ ì£¼ì„¸ìš”.</h5>
 		</div>
 
 		<!-- form Start /////////////////////////////////////-->
 		<form class="form-horizontal">
 
 			<div class="form-group text-center">
-				<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">»óÇ°¸í</label>
+				<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">ìƒí’ˆëª…</label>
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
-					<input type="text" id = "prodName" name = "prodName" class="form-control" placeholder="»óÇ°¸í">
+					<input type="text" id = "prodName" name = "prodName" class="form-control" placeholder="ìƒí’ˆëª…">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="prodDetail" class="col-sm-offset-1 col-sm-3 control-label">»óÇ° »ó¼¼Á¤º¸</label>
+				<label for="prodDetail" class="col-sm-offset-1 col-sm-3 control-label">ìƒí’ˆ ìƒì„¸ì •ë³´</label>
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
-					<input type="text" class="form-control" id="prodDetail" name="prodDetail" placeholder="»óÇ° »ó¼¼Á¤º¸">
+					<input type="text" class="form-control" id="prodDetail" name="prodDetail" placeholder="ìƒí’ˆ ìƒì„¸ì •ë³´">
 				</div>
 			</div>
 <%--			<div class="form-group">--%>
-<%--				<label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">Á¦Á¶ÀÏÀÚ</label>--%>
+<%--				<label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">ì œì¡°ì¼ì</label>--%>
 <%--				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">--%>
-<%--					<input type="text" class="form-control input-daterange" id="manuDate" name="manuDate" placeholder="Á¦Á¶ ÀÏÀÚ"  readonly>--%>
+<%--					<input type="text" class="form-control input-daterange" id="manuDate" name="manuDate" placeholder="ì œì¡° ì¼ì"  readonly>--%>
 <%--				</div>--%>
 <%--			</div>--%>
 			<div class="container px-1 px-sm-5 mx-auto">
@@ -253,7 +258,7 @@
 					<div class="flex-row d-flex justify-content-center">
 						<div class="col-lg-6 col-11 px-1">
 							<div class="form-group input-daterange">
-								<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">Á¦Á¶ÀÏÀÚ</label>
+								<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">ì œì¡°ì¼ì</label>
 								<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
 								<input type="text" id="start" name = "manuDate" class="form-control" readonly>
 								</div>
@@ -264,21 +269,21 @@
 				</form>
 			</div>
 			<div class="form-group">
-				<label for="price" class="col-sm-offset-1 col-sm-3 control-label">°¡°İ</label>
+				<label for="price" class="col-sm-offset-1 col-sm-3 control-label">ê°€ê²©</label>
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
-					<input type="text" class="form-control" id="price" name="price" placeholder="°¡°İ">
+					<input type="text" class="form-control" id="price" name="price" placeholder="ê°€ê²©">
 				</div>
 			</div>
 
 			<div class="form-group">
-				»óÇ° ÀÌ¹ÌÁö
+				ìƒí’ˆ ì´ë¯¸ì§€
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
 						<input type = "file" name = "uploadFile" id = "uploadFile" class ="form-control" style = "width:300px; height: 30px" maxlength="13"/>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
-					<a href="javascript:fncAddProduct();" class="btn btn-primary" id = "add">µî &nbsp;·Ï</a>
-					<a href="javascript:resetData();" class = "btn btn-primary">Ãë &nbsp;¼Ò</a>
+					<a href="javascript:fncAddProduct();" class="btn btn-primary" id = "add">ë“± &nbsp;ë¡</a>
+					<a href="javascript:resetData();" class = "btn btn-primary">ì·¨ &nbsp;ì†Œ</a>
 				</div>
 			</div>
 			</div>
@@ -289,4 +294,4 @@
 </form>
 </body>
 </html>
-	<!--  È­¸é±¸¼º div Start /////////////////////////////////////-->
+	<!--  í™”ë©´êµ¬ì„± div Start /////////////////////////////////////-->

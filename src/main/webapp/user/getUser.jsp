@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
@@ -7,9 +7,9 @@
 <html lang="ko">
 	
 <head>
-	<meta charset="EUC-KR">
+	<meta charset="UTF-8">
 
-	<!-- ÂüÁ¶ : http://getbootstrap.com/css/   ÂüÁ¶ -->
+	<!-- ì°¸ì¡° : http://getbootstrap.com/css/   ì°¸ì¡° -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
@@ -35,33 +35,33 @@
 	<script src="/javascript/bootstrap-dropdownhover.min.js"></script>
 
 
-	<!-- jQuery UI toolTip »ç¿ë CSS-->
+	<!-- jQuery UI toolTip ì‚¬ìš© CSS-->
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<!-- jQuery UI toolTip »ç¿ë JS-->
+	<!-- jQuery UI toolTip ì‚¬ìš© JS-->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<style>
 		body {
-			padding-top: 70px; /* Åø¹ÙÀÇ ³ôÀÌ¸¸Å­ Ãß°¡ */
+			padding-top: 70px; /* íˆ´ë°”ì˜ ë†’ì´ë§Œí¼ ì¶”ê°€ */
 		}
 		 .table th, .table td {
-			 font-size: 20px; /* ±ÛÀÚ Å©±â¸¦ 20px·Î ¼³Á¤ */
+			 font-size: 20px; /* ê¸€ì í¬ê¸°ë¥¼ 20pxë¡œ ì„¤ì • */
 		 }
 		#navs {
-			font-size: 50px; /* 'Profile' ÅØ½ºÆ®ÀÇ ±ÛÀÚ Å©±â¸¦ 30px·Î ¼³Á¤ */
+			font-size: 50px; /* 'Profile' í…ìŠ¤íŠ¸ì˜ ê¸€ì í¬ê¸°ë¥¼ 30pxë¡œ ì„¤ì • */
 		}
 
 		#edit {
-			font-size: 20px; /* ¹öÆ°ÀÇ ±ÛÀÚ Å©±â¸¦ 20px·Î ¼³Á¤ */
-			padding: 7px 14px; /* ¹öÆ°ÀÇ ÆĞµùÀ» Á¶Á¤ÇÏ¿© ¹öÆ°ÀÇ Å©±â¸¦ ´Ã¸² */
+			font-size: 20px; /* ë²„íŠ¼ì˜ ê¸€ì í¬ê¸°ë¥¼ 20pxë¡œ ì„¤ì • */
+			padding: 7px 14px; /* ë²„íŠ¼ì˜ íŒ¨ë”©ì„ ì¡°ì •í•˜ì—¬ ë²„íŠ¼ì˜ í¬ê¸°ë¥¼ ëŠ˜ë¦¼ */
 		}
 	</style>
     
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
 	<script type="text/javascript">
 
-		//============= È¸¿øÁ¤º¸¼öÁ¤ Event  Ã³¸® =============	
+		//============= íšŒì›ì •ë³´ìˆ˜ì • Event  ì²˜ë¦¬ =============	
 		$(function () {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("button").on("click", function () {
 				self.location = "/user/updateUser?userId=${user.userId}"
 			});
@@ -116,7 +116,7 @@
 		</tr>
 		</tbody>
 	</table>
- 	<!--  È­¸é±¸¼º div Start /////////////////////////////////////-->
+ 	<!--  í™”ë©´êµ¬ì„± div Start /////////////////////////////////////-->
 				</div>
 			</div>
 		</div>

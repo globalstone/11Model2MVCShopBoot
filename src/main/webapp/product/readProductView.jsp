@@ -1,21 +1,21 @@
 <%--<%@page import="com.model2.mvc.service.domain.Product"%> --%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<% Product vo = (Product)request.getAttribute("ProdVO"); --%>
 <html>
 <head>
-<title>»óÇ°µî·Ï</title>
+<title>ìƒí’ˆë“±ë¡</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 
 		$(function () {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ý ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("button").on("click", function () {
 				self.location = "/product/listProduct/manage"
 			});
 		});
 		$(function () {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ý ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			$("#edit1").on("click", function () {
 				self.location = "../product/addProductView.jsp"
 			});
@@ -36,48 +36,48 @@
 	<div class="row">
 		<div class = "col-lg-12">
 			<div class = "page-header">
-				<h1 id = "navs">»óÇ°µî·ÏÁ¤º¸</h1>
+				<h1 id = "navs">ìƒí’ˆë“±ë¡ì •ë³´</h1>
 				<table class="table table-hover">
 					<thead>
 					<tr>
-						<th scope="col">»óÇ°¸í</th>
+						<th scope="col">ìƒí’ˆëª…</th>
 						<th scope="col">${ProdVO.prodName}</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr class="table-active">
-						<th scope="row">»óÇ°»ó¼¼Á¤º¸</th>
+						<th scope="row">ìƒí’ˆìƒì„¸ì •ë³´</th>
 						<td>${ProdVO.prodDetail}</td>
 					</tr>
 					</tbody>
 					<thead>
 					<tr>
-						<th scope="col">Á¦Á¶ÀÏÀÚ</th>
+						<th scope="col">ì œì¡°ì¼ìž</th>
 						<th scope="col">${ProdVO.manuDate}</th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr class="table-active">
-						<th scope="row">°¡°Ý</th>
+						<th scope="row">ê°€ê²©</th>
 						<td>${ ProdVO.price }</td>
 					</tr>
 					</tbody>
 					<thead>
 					<tr>
-						<th scope="col">»óÇ°ÀÌ¹ÌÁö</th>
+						<th scope="col">ìƒí’ˆì´ë¯¸ì§€</th>
 						<th scope="col"><img src="/images/uploadFiles/${ProdVO.fileName }" style="width: 200px; height: 200px;"/></th>
 					</tr>
 					</thead>
 				</table>
-				<!--  È­¸é±¸¼º div Start /////////////////////////////////////-->
+				<!--  í™”ë©´êµ¬ì„± div Start /////////////////////////////////////-->
 			</div>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12 text-center ">
-		<button type="button" class="btn btn-primary" id = "edit">È® ÀÎ</button>
-		<button type="button" class="btn btn-primary" id = "edit1">Ãß°¡µî·Ï</button>
+		<button type="button" class="btn btn-primary" id = "edit">í™• ì¸</button>
+		<button type="button" class="btn btn-primary" id = "edit1">ì¶”ê°€ë“±ë¡</button>
 	</div>
 </div>
 </body>
@@ -90,7 +90,7 @@
 <%--		<td background="/images/ct_ttl_img02.gif" width="100%" style="padding-left: 10px;">--%>
 <%--			<table width="100%" border="0" cellspacing="0" cellpadding="0">--%>
 <%--				<tr>--%>
-<%--					<td width="93%" class="ct_ttl01">»óÇ°µî·Ï</td>--%>
+<%--					<td width="93%" class="ct_ttl01">ìƒí’ˆë“±ë¡</td>--%>
 <%--					<td width="20%" align="right">&nbsp;</td>--%>
 <%--				</tr>--%>
 <%--			</table>--%>
@@ -107,7 +107,7 @@
 <%--	</tr>--%>
 <%--	<tr>--%>
 <%--		<td width="104" class="ct_write">--%>
-<%--			»óÇ°¸í <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
+<%--			ìƒí’ˆëª… <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
 <%--		</td>--%>
 <%--		<td bgcolor="D6D6D6" width="1"></td>--%>
 <%--		<td class="ct_write01">--%>
@@ -125,7 +125,7 @@
 
 <%--	<tr>--%>
 <%--		<td width="104" class="ct_write">--%>
-<%--			»óÇ°»ó¼¼Á¤º¸ <img  src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
+<%--			ìƒí’ˆìƒì„¸ì •ë³´ <img  src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
 <%--		</td>--%>
 <%--		<td bgcolor="D6D6D6" width="1"></td>--%>
 <%--		<td class="ct_write01">${ProdVO.prodDetail}--%>
@@ -136,7 +136,7 @@
 
 <%--	<tr>--%>
 <%--		<td width="104" class="ct_write">--%>
-<%--			Á¦Á¶ÀÏÀÚ<img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
+<%--			ì œì¡°ì¼ìž<img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
 <%--		</td>--%>
 <%--		<td bgcolor="D6D6D6" width="1"></td>--%>
 <%--		<td class="ct_write01">${ ProdVO.manuDate }--%>
@@ -146,7 +146,7 @@
 <%--	</tr>--%>
 <%--	<tr>--%>
 <%--		<td width="104" class="ct_write">--%>
-<%--			°¡°Ý<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
+<%--			ê°€ê²©<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>--%>
 <%--		</td>--%>
 <%--		<td bgcolor="D6D6D6" width="1"></td>--%>
 <%--		<td class="ct_write01">${ ProdVO.price }--%>
@@ -156,10 +156,10 @@
 <%--		<td height="1" colspan="3" bgcolor="D6D6D6"></td>--%>
 <%--	</tr>--%>
 <%--	<tr>--%>
-<%--		<td width="104" class="ct_write">»óÇ°ÀÌ¹ÌÁö</td>--%>
+<%--		<td width="104" class="ct_write">ìƒí’ˆì´ë¯¸ì§€</td>--%>
 <%--		<td bgcolor="D6D6D6" width="1"></td>--%>
 <%--		<td class="ct_write01">--%>
-<%--			<!-- Å×ÀÌºí ½ÃÀÛ -->--%>
+<%--			<!-- í…Œì´ë¸” ì‹œìž‘ -->--%>
 <%--			<table border="0" cellspacing="0" cellpadding="0">--%>
 <%--				<tr>--%>
 <%--					<td height="26">--%>
@@ -184,7 +184,7 @@
 <%--						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>--%>
 <%--					</td>--%>
 <%--					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">--%>
-<%--						<a href="/product/listProduct/manage">È®ÀÎ</a>--%>
+<%--						<a href="/product/listProduct/manage">í™•ì¸</a>--%>
 <%--					</td>--%>
 <%--					<td width="14" height="23">--%>
 <%--						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>--%>
@@ -193,7 +193,7 @@
 <%--						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>--%>
 <%--					</td>--%>
 <%--					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">--%>
-<%--						<a href="../product/addProductView.jsp;">Ãß°¡µî·Ï</a>--%>
+<%--						<a href="../product/addProductView.jsp;">ì¶”ê°€ë“±ë¡</a>--%>
 <%--					</td>--%>
 <%--					<td width="14" height="23">--%>
 <%--						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>--%>
