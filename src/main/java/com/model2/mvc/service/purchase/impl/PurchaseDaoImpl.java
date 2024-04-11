@@ -21,6 +21,7 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	}
 	
 	public PurchaseDaoImpl() {
+		System.out.println("PurchaseDaoImpl start......");
 	}
 
 	@Override

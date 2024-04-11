@@ -57,7 +57,8 @@
 					autoclose: true,
 					calendarWeeks: true,
 					clearBtn: true,
-					disableTouchKeyboard: true
+					disableTouchKeyboard: true,
+					endDate: new Date(),
 				});
 			});
 	</script>

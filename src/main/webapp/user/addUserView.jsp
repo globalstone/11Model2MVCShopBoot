@@ -62,6 +62,7 @@
 			var pw = $("input[name='password']").val();
 			var pw_confirm = $("input[name='password2']").val();
 			var name = $("input[name='userName']").val();
+			var auth = $("input[name='authCode']").val();
 
 			if (id == null || id.length < 1) {
 				alert("아이디는 반드시 입력하셔야 합니다.");
@@ -83,6 +84,10 @@
 			if (pw != pw_confirm) {
 				alert("비밀번호 확인이 일치하지 않습니다.");
 				$("input:text[name='password2']").focus();
+				return;
+			}
+			if (auth == null || auth.length < 1) {
+				alert("인증번호는 반드시 입력하셔야 합니다.");
 				return;
 			}
 
