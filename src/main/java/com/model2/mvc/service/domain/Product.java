@@ -15,5 +15,6 @@ public class Product {
 	private int prodNo;
 	private Date regDate;
 	private String proTranCode;
+	private int quantity;
 
 }

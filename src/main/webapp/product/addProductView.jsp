@@ -13,6 +13,7 @@
 			var manuDate = document.detailForm.manuDate.value;
 			var price = document.detailForm.price.value;
 			var file = document.detailForm.uploadFile.value;
+			var quantity = document.detailForm.quantity.value;
 
 			if(name == null || name.length<1){
 				alert("상품명은 반드시 입력하여야 합니다.");
@@ -31,10 +32,13 @@
 				return;
 			}
 			if(file == null || file.length<1){
-				alert("가격은 반드시 입력하셔야 합니다.");
+				alert("상품이미지는 반드시 입력하셔야 합니다.");
 				return;
 			}
-
+			if(quantity == null || quantity.length<1){
+				alert("수량은 반드시 입력하셔야 합니다.");
+				return;
+			}
 			document.detailForm.action='/product/addProduct';
 			document.detailForm.submit();
 		}
@@ -272,6 +276,14 @@
 				<label for="price" class="col-sm-offset-1 col-sm-3 control-label">가격</label>
 				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
 					<input type="text" class="form-control" id="price" name="price" placeholder="가격">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="quantity" class="col-sm-offset-1 col-sm-3 control-label">수량</label>
+				<div class="col-sm-4" style="display: block; margin-left: auto; margin-right: auto;">
+					<input type="text" class="form-control" id="quantity" name="quantity" placeholder="수량">
 				</div>
 			</div>
 

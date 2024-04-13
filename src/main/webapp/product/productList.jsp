@@ -226,6 +226,26 @@
 						console.error("못불러왔음 ");
 					}
 				});
+				$(document).ready(function () {
+
+					$(".increaseBtn").on("click", function () {
+						let quantityInput = $(this).prev();
+						let quantity = parseInt(quantityInput.val());
+						quantity++;
+						quantityInput.val(quantity);
+					});
+
+					// - 버튼 클릭 이벤트
+					$(".decreaseBtn").on("click", function () {
+						let quantityInput = $(this).prev().prev();
+						let quantity = parseInt(quantityInput.val());
+						if (quantity > 1) {
+							quantity--;
+							quantityInput.val(quantity);
+						}
+					});
+
+				});
 			});
 </script>
 <style>
@@ -271,8 +291,9 @@
 							<c:if test="${ empty prod.proTranCode }">
 								<div style = "float: right;">On Sale</div>
 							</c:if></h3>
-						<div class="card-body">
+						<div class="card-body d-flex justify-content-between">
 							<h5 class="card-title">${prod.prodName}</h5>
+							<h5><span class ="badge bg-primary rounded-pill text-white align-self-center">${prod.quantity}</span></h5>
 						</div>
 						<img src="/images/uploadFiles/${prod.fileName}" alt="Product Image" width="100%" height="200">
 						<div class="card-body">
@@ -284,9 +305,13 @@
 						</ul>
 						<div class="card-body">
 							<c:if test="${ empty prod.proTranCode }">
-							<a href="/purchase/addPurchase/${ prod.prodNo }">Buy</a>
+									<input type="text" name = "quantity" class="form-control" min="1" value="1">
+								<button type="button" class="btn btn-success increaseBtn" id="increaseBtn">+</button>
+								<button type="button" class="btn btn-danger decreaseBtn" id="decreaseBtn">-</button>
+								<a href="/purchase/addPurchase/${ prod.prodNo }">Buy</a>
 							</c:if>
 							<a href="/product/wishlist/${prod.prodNo}" class="card-link">Whish</a>
+
 						</div>
 						<div class="card-footer text-muted">
 								${prod.regDate}

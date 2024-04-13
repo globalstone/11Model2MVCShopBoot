@@ -15,7 +15,7 @@
 			});
 		});
 		$(function () {
-			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 31.$(.className)
 			$("#edit1").on("click", function () {
 				self.location = "../product/addProductView.jsp"
 			});
@@ -64,8 +64,14 @@
 					</tbody>
 					<thead>
 					<tr>
-						<th scope="col">상품이미지</th>
-						<th scope="col"><img src="/images/uploadFiles/${ProdVO.fileName }" style="width: 200px; height: 200px;"/></th>
+						<th scope="col">수량</th>
+						<th scope="col">${ProdVO.quantity}</th>
+					</tr>
+					</thead>
+					<thead>
+					<tr>
+						<th scope="row">상품이미지</th>
+						<th scope="row"><img src="/images/uploadFiles/${ProdVO.fileName }" style="width: 200px; height: 200px;"/></th>
 					</tr>
 					</thead>
 				</table>
