@@ -1,35 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%-- 
-<%@page import="java.util.*"%>
-<%@page import="com.model2.mvc.common.Page"%>
-<%@page import="com.model2.mvc.service.domain.Product"%>
-<%@page import="com.model2.mvc.service.purchase.vo.PurchaseVO"%>
-<%@page import="com.model2.mvc.common.Search"%>
-<%@page import="com.model2.mvc.common.util.CommonUtil"%>
-
-<%
-	List<Product> list =(List<Product>)request.getAttribute("list");
-	Search search=(Search)request.getAttribute("search");
-	Page resultPage = (Page)request.getAttribute("resultPage");
-	//Purchase pur = new Purchase();
-	String menu = (String)request.getAttribute("menu");
-	String searchCondition = CommonUtil.null2str(search.getSearchCondition());
-	String searchKeyword = CommonUtil.null2str(search.getSearchKeyword());
-	
-%>
---%>
 
 <html>
 <head>
 <title>상품 목록조회</title>
-<%--	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
-<%--	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
-<%--	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>--%>
-<%--	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>--%>
-<%--	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">--%>
-<%--	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">--%>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -39,8 +14,6 @@
 <script type="text/javascript">
 
 	function fncGetUserList(currentPage,menu) {
-		// document.getElementById("currentPage").value = currentPage;
-		// document.detailForm.submit();
 		$("#currentPage").val(currentPage);
 
 		if (menu === 'search') {
@@ -111,8 +84,9 @@
 						'<a href="/product/updateProduct/${ prod.prodNo }/${ menu }" style="float: right;" id = "Edit">Edit</a>' +
 						'</c:if>' +
 						'</h3>' +
-						'<div class = "card-body">' +
+						'<div class="card-body d-flex justify-content-between">' +
 						'<h5 class ="card-title">' + product.prodName + '</h5>' +
+						'<h5><span class ="badge bg-primary rounded-pill text-white align-self-center">'+ product.quantity+'</span></h5>' +
 						'</div>' +
 						img.outerHTML +
 						'<div class = "card-body">' +
@@ -123,8 +97,12 @@
 						'<input class = "form-control" id = "readOnlyInput" type="text" placeholder="' + product.price + '" readonly="">' +
 						'</ul>' +
 						'<div class = "card-body">' +
+						'<input type="hidden" name="maxQuantity" id = "maxQuantity" value="'+product.quantity+'" />'+
 						'<c:if test = "${menu == 'search'}">' +
 						'<c:if test="${ empty prod.proTranCode }">' +
+						'<input type="text" name = "quantity" class="form-control" min="1" value="1">' +
+						'<button type="button" class="btn btn-success increaseBtn" id="increaseBtn">+</button>'+
+						'<button type="button" class="btn btn-danger decreaseBtn" id="decreaseBtn">-</button>' +
 						'<a href = "/purchase/addPurchase/' + product.prodNo + '" class = "card-link"> Buy </a>' +
 						'</c:if>' +
 						'<a href = "#" class = "card-link"> Wish </a>' +
@@ -226,27 +204,42 @@
 						console.error("못불러왔음 ");
 					}
 				});
-				$(document).ready(function () {
-
-					$(".increaseBtn").on("click", function () {
-						let quantityInput = $(this).prev();
-						let quantity = parseInt(quantityInput.val());
-						quantity++;
-						quantityInput.val(quantity);
-					});
-
-					// - 버튼 클릭 이벤트
-					$(".decreaseBtn").on("click", function () {
-						let quantityInput = $(this).prev().prev();
-						let quantity = parseInt(quantityInput.val());
-						if (quantity > 1) {
-							quantity--;
-							quantityInput.val(quantity);
-						}
-					});
-
-				});
 			});
+	$(document).ready(function () {
+
+		function changeQuantity(type, button) {
+			var quantityInput = button.prevAll("input[name='quantity']").first();
+			var maxQuantity = parseInt(button.prevAll("input[name='maxQuantity']").first().val());
+			var number = parseInt(quantityInput.val());
+
+			if (type === 'plus') {
+				if (maxQuantity > number) {
+					number++;
+					quantityInput.val(number);
+				} else {
+					alert("최대수량 초과");
+				}
+			} else {
+				if (number > 1) {
+					number--;
+					quantityInput.val(number);
+				} else {
+					alert("1보다 작아질 수는 없습니다");
+				}
+			}
+		}
+
+		$(document).on("click", ".increaseBtn", function () {
+			changeQuantity('plus', $(this));
+		});
+
+		$(document).on("click", ".decreaseBtn", function () {
+			changeQuantity('minus', $(this));
+		});
+
+	});
+
+
 </script>
 <style>
 	body {
@@ -304,8 +297,9 @@
 							<input class="form-control" id="readOnlyInput" type="text" placeholder=${prod.price} readonly="">
 						</ul>
 						<div class="card-body">
+							<input type="hidden" name="maxQuantity" id = "maxQuantity" value="${prod.quantity}" />
 							<c:if test="${ empty prod.proTranCode }">
-									<input type="text" name = "quantity" class="form-control" min="1" value="1">
+								<input type="text" name = "quantity" class="form-control" min="1" value="1">
 								<button type="button" class="btn btn-success increaseBtn" id="increaseBtn">+</button>
 								<button type="button" class="btn btn-danger decreaseBtn" id="decreaseBtn">-</button>
 								<a href="/purchase/addPurchase/${ prod.prodNo }">Buy</a>

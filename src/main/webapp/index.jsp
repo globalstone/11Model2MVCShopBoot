@@ -22,37 +22,7 @@
 	<!-- 참조 : http://getbootstrap.com/css/   -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<!--  ///////////////////////// Bootstrap, jQuery CDN ////////////////////////// -->
-<%--	<!-- Bootstrap CSS -->--%>
-<%--	<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/sketchy/bootstrap.min.css" rel="stylesheet">--%>
-
-<%--	<!-- Bootstrap 5 JS bundle (includes Popper.js) -->--%>
-<%--	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>--%>
-
-<%--	<!-- jQuery -->--%>
-<%--	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
-	<!-- Bootstrap Datepicker CSS -->
-<%--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">--%>
-
-<%--	<!-- Twitter Bootstrap CSS -->--%>
-<%--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">--%>
-<%--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">--%>
-
-<%--	<!-- jQuery -->--%>
-<%--	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
-
-<%--	<!-- Bootstrap Datepicker JS -->--%>
-<%--	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>--%>
-
-<%--	<!-- Twitter Bootstrap JS -->--%>
-<%--	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>--%>
-
-<%--	<!-- Bootswatch Sketchy CSS -->--%>
-<%--	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">--%>
-	<!-- jQuery -->
-<%--	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>--%>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<%--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.5.2/sketchy/bootstrap.min.css" rel="stylesheet">--%>
 
 	<!-- Bootstrap 4 CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -82,9 +52,9 @@
 				container: '#kakao-login-btn',
 				success: function (authObj) {
 					debugger;
-					alert(JSON.stringify(authObj));
+					// alert(JSON.stringify(authObj));
 					console.log(authObj);
-					window.location.href = "http://192.168.0.17:8080/main.jsp";
+					// window.location.href = "http://192.168.0.17:8080/main.jsp";
 				},
 				fail: function (err) {
 					alert(JSON.stringify(err));
@@ -131,25 +101,10 @@
 								password: pw
 							}),
 							success: function (JSONData, status) {
-								//Debug...
-								//alert(status);
-								//alert("JSONData : \n"+JSONData);
-								//alert( "JSON.stringify(JSONData) : \n"+JSON.stringify(JSONData) );
-								//alert( JSONData != null );
-
 								if (JSONData != null) {
 									//[방법1]
 									$(window.parent.document.location).attr("href","/index.jsp");
 
-									//[방법2]
-									// window.parent.document.location.reload();
-
-									//[방법3]
-									// $(window.parent.frames["topFrame"].document.location).attr("href", "/layout/top.jsp");
-									// $(window.parent.frames["leftFrame"].document.location).attr("href", "/layout/left.jsp");
-									// $(window.parent.frames["rightFrame"].document.location).attr("href", "/user/getUser?userId=" + JSONData.userId);
-
-									//==> 방법 1 , 2 , 3 결과 학인
 								} else {
 									alert("아이디 , 패스워드를 확인하시고 다시 로그인...");
 								}
@@ -216,63 +171,19 @@
 	
 			<!--  Menu 구성 Start /////////////////////////////////////-->     	
 			<div class="col-md-3">
-		        
-		       	<!--  회원관리 목록에 제목 -->
-<%--				<div class="panel panel-primary">--%>
-<%--					<div class="panel-heading">--%>
-<%--						<i class="glyphicon glyphicon-heart"></i> 회원관리--%>
-<%--         			</div>--%>
-<%--         			<!--  회원관리 아이템 -->--%>
-<%--					<ul class="list-group">--%>
-<%--						 <li class="list-group-item">--%>
-<%--						 	<a class="disabled" href="#" tabindex="-1" aria-disabled="true">개인정보조회</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
-<%--						 </li>--%>
-<%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">회원정보조회</a> <span class="glyphicon glyphicon-ban-circle"></span>--%>
-<%--						 </li>--%>
-<%--					</ul>--%>
-<%--		        </div>--%>
+
 				<div class="list-group mb-5">
 					<a href="#" class="list-group-item list-group-item-action active disabled">회원 관리</a>
 					<a href="#" class="list-group-item list-group-item-action">개인정보 조회</a>
 					<a href="#" class="list-group-item list-group-item-action">회원정보 조회</a>
 				</div>
-               
-               
-<%--				<div class="panel panel-primary">--%>
-<%--					<div class="panel-heading">--%>
-<%--							<i class="glyphicon glyphicon-briefcase"></i> 판매상품관리--%>
-<%--         			</div>--%>
-<%--					<ul class="list-group">--%>
-<%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">판매상품등록</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
-<%--						 </li>--%>
-<%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">판매상품관리</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
-<%--						 </li>--%>
-<%--					</ul>--%>
-<%--		        </div>--%>
+
 				<div class="list-group mb-5">
 					<a href="#" class="list-group-item list-group-item-action active disabled">판매상품 관리</a>
 					<a href="#" class="list-group-item list-group-item-action">판매상품등록</a>
 					<a href="#" class="list-group-item list-group-item-action">판매상품관리</a>
 				</div>
-               
-               
-<%--				<div class="panel panel-primary">--%>
-<%--					<div class="panel-heading">--%>
-<%--							<i class="glyphicon glyphicon-shopping-cart"></i> 상품구매--%>
-<%--	    			</div>--%>
-<%--					<ul class="list-group">--%>
-<%--						 <li class="list-group-item"><a href="#">상품검색</a></li>--%>
-<%--						  <li class="list-group-item">--%>
-<%--						  	<a href="#">구매이력조회</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
-<%--						  </li>--%>
-<%--						 <li class="list-group-item">--%>
-<%--						 	<a href="#">최근본상품</a> <i class="glyphicon glyphicon-ban-circle"></i>--%>
-<%--						 </li>--%>
-<%--					</ul>--%>
-<%--				</div>--%>
+
 				<div class="list-group mb-5">
 					<a href="#" class="list-group-item list-group-item-action active disabled">상품구매</a>
 					<a href="#" class="list-group-item list-group-item-action">상품검색</a>

@@ -29,11 +29,12 @@ public class KakaoController {
         System.out.println("#########" + code);
 //        Kakao number = ms.kakaoNumber(userInfo);
 //        System.out.println("넘버확인용" + number);
+        session.setAttribute("kakao",userInfo);
         session.setAttribute("kakaoN", userInfo.getK_name());
         session.setAttribute("kakaoE", userInfo.getK_email());
+        System.out.println(userInfo);
 //        session.setAttribute("kakaoNumber", number.getK_number());
 
-        session.invalidate();
 
         return "redirect:/main.jsp";
     }

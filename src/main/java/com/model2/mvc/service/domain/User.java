@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.Date;
 
 
-//==>È¸¿øÁ¤º¸¸¦ ¸ğµ¨¸µ(Ãß»óÈ­/Ä¸½¶È­)ÇÑ Bean
+//==>íšŒì›ì •ë³´ë¥¼ ëª¨ë¸ë§(ì¶”ìƒí™”/ìº¡ìŠí™”)í•œ Bean
 @Data
 public class User {
 
@@ -19,12 +19,12 @@ public class User {
 	private String addr;
 	private String email;
 	private Date regDate;
-	/////////////// EL Àû¿ë À§ÇØ Ãß°¡µÈ Field ///////////
+	/////////////// EL ì ìš© ìœ„í•´ ì¶”ê°€ëœ Field ///////////
 	private String phone1;
 	private String phone2;
 	private String phone3;
 	//////////////////////////////////////////////////////////////////////////////////////////////
-	// JSON ==> Domain Object  BindingÀ» À§ÇØ Ãß°¡µÈ ºÎºĞ
+	// JSON ==> Domain Object  Bindingì„ ìœ„í•´ ì¶”ê°€ëœ ë¶€ë¶„
 	private String regDateString;
 
 }

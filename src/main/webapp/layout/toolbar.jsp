@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=EUC-KR" %>
-<%@ page pageEncoding="EUC-KR"%>
+<%@ page pageEncoding="UTF-8"%>
 
 <!--  ///////////////////////// JSTL  ////////////////////////// -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -52,11 +52,11 @@
 		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
-					È¸¿ø°ü¸®</a>
+					íšŒì›ê´€ë¦¬</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="javascript:void(0);" id="getUserLink">°³ÀÎÁ¤º¸Á¶È¸</a>
+					<a class="dropdown-item" href="javascript:void(0);" id="getUserLink">ê°œì¸ì •ë³´ì¡°íšŒ</a>
 					<c:if test="${user.role == 'admin'}">
-						<a class="dropdown-item" href="javascript:void(0);">È¸¿øÁ¤º¸Á¶È¸</a>
+						<a class="dropdown-item" href="javascript:void(0);">íšŒì›ì •ë³´ì¡°íšŒ</a>
 					</c:if>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">etc...</a>
@@ -64,29 +64,37 @@
 			</li>
 			<c:if test="${user.role == 'admin'}">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">»óÇ°°ü¸®</a>
+					<a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">ìƒí’ˆê´€ë¦¬</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="javascript:void(0);">ÆÇ¸Å»óÇ°µî·Ï</a>
-						<a class="dropdown-item" href="javascript:void(0);">ÆÇ¸Å»óÇ°°ü¸®</a>
-						<a class="dropdown-item" href="#">¹è¼Û°ü¸®</a>
+						<a class="dropdown-item" href="javascript:void(0);">íŒë§¤ìƒí’ˆë“±ë¡</a>
+						<a class="dropdown-item" href="javascript:void(0);">íŒë§¤ìƒí’ˆê´€ë¦¬</a>
+						<a class="dropdown-item" href="#">ë°°ì†¡ê´€ë¦¬</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">etc...</a>
 					</div>
 				</li>
 			</c:if>
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">»óÇ°±¸¸Å</a>
+				<a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">ìƒí’ˆêµ¬ë§¤</a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="javascript:void(0);">»óÇ°°Ë»ö</a>
-					<a class="dropdown-item" href="javascript:void(0);">±¸¸ÅÀÌ·ÂÁ¶È¸</a>
-					<a class="dropdown-item" href="javascript:void(0);">Âò ¸ñ·Ï</a>
+					<a class="dropdown-item" href="javascript:void(0);">ìƒí’ˆê²€ìƒ‰</a>
+					<a class="dropdown-item" href="javascript:void(0);">êµ¬ë§¤ì´ë ¥ì¡°íšŒ</a>
+					<a class="dropdown-item" href="javascript:void(0);">ì°œ ëª©ë¡</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">etc...</a>
 				</div>
 			</li>
 		</ul>
 		<form class="d-flex ml-auto">
-			<h4>${user.userName}´Ô È¯¿µÇÕ´Ï´Ù.</h4>
+			<c:choose>
+				<c:when test="${!empty user.userName}">
+					<h4>${user.userName}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</h4>
+				</c:when>
+				<c:otherwise>
+					<h4>${kakao.k_name}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</h4>
+				</c:otherwise>
+			</c:choose>
+
 			<button class="btn btn-secondary me-2" type="submit" id="Logout">Log out</button>
 		</form>
 	</div>
@@ -127,48 +135,48 @@
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('È¸¿øÁ¤º¸Á¶È¸')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('íšŒì›ì •ë³´ì¡°íšŒ')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				self.location = "/user/listUser"
 			});
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('ÆÇ¸Å»óÇ°µî·Ï')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('íŒë§¤ìƒí’ˆë“±ë¡')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				self.location = "/product/addProductView.jsp"
 			});
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('ÆÇ¸Å»óÇ°°ü¸®')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('íŒë§¤ìƒí’ˆê´€ë¦¬')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				self.location = "/product/listProduct/manage"
 			});
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('»óÇ°°Ë»ö')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('ìƒí’ˆê²€ìƒ‰')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				self.location = "/product/listProduct/search"
 			});
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('±¸¸ÅÀÌ·ÂÁ¶È¸')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('êµ¬ë§¤ì´ë ¥ì¡°íšŒ')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				self.location = "/purchase/listPurchase"
 			});
 		});
 
 		$(function() {
-			//==> DOM Object GET 3°¡Áö ¹æ¹ı ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("a:contains('ÃÖ±Ùº»»óÇ°')").on("click" , function() {
+			//==> DOM Object GET 3ê°€ì§€ ë°©ë²• ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			$("a:contains('ìµœê·¼ë³¸ìƒí’ˆ')").on("click" , function() {
 				//$(self.location).attr("href","/user/logout");
 				window.open("/history.jsp", "_blank");
 			});
