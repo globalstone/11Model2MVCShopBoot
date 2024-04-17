@@ -82,31 +82,31 @@
 		<thead>
 		<tr>
 			<th scope="col">UserID</th>
-			<th scope="col">${user.userId}</th>
+			<th scope="col">${user.userId}${kakao.k_number}</th>
 		</tr>
 		</thead>
 		<tbody>
 			<tr class="table-active">
 				<th scope="row">UserName</th>
-				<td>${user.userName}</td>
+				<td>${user.userName}${kakao.k_name}</td>
 			</tr>
 		</tbody>
 			<thead>
 			<tr>
 				<th scope="col">ADDR</th>
-				<th scope="col">${user.addr}</th>
+				<th scope="col">${user.addr}준비중</th>
 			</tr>
 			</thead>
 		<tbody>
 			<tr class="table-active">
 				<th scope="row">Phone</th>
-				<td>${ !empty user.phone ? user.phone : ''}</td>
+				<td>${ !empty user.phone ? user.phone : ''}${kakao.k_phone}</td>
 			</tr>
 		</tbody>
 		<thead>
 		<tr>
 			<th scope="col">email</th>
-			<th scope="col">${user.email}</th>
+			<th scope="col">${user.email}${kakao.k_email}</th>
 		</tr>
 		</thead>
 		<tbody>

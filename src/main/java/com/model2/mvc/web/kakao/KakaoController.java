@@ -32,6 +32,7 @@ public class KakaoController {
         session.setAttribute("kakao",userInfo);
         session.setAttribute("kakaoN", userInfo.getK_name());
         session.setAttribute("kakaoE", userInfo.getK_email());
+        session.setAttribute("kphone", userInfo.getK_phone());
         System.out.println(userInfo);
 //        session.setAttribute("kakaoNumber", number.getK_number());
 

@@ -46,7 +46,7 @@
 		//<![CDATA[
 		// 사용할 앱의 JavaScript 키를 설정해 주세요.
 		$(document).ready(function() {
-			Kakao.init('156ad557ed4df3d2e6fa9905dae81a56');
+			Kakao.init('bde4d0b1dd558fcdac6b04e0ba243c20');
 			// 카카오 로그인 버튼을 생성합니다.
 			Kakao.Auth.createLoginButton({
 				container: '#kakao-login-btn',
@@ -202,7 +202,7 @@
 					<!-- 카카오 -->
 				</div>
 				<div id="kakao"></div>
-				<a class="p-2" id = "kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=8df753a4b334db7b6d9d4824b176caf5&redirect_uri=http://192.168.0.17:8080/kakao/login&response_type=code">
+				<a class="p-2" id = "kakao-login-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=cec50764919801119a69066d40036533&redirect_uri=http://192.168.0.17:8080/kakao/login&response_type=code">
 				</a>
 			  		<p>회원가입 하세요.</p>
 			  	</div>

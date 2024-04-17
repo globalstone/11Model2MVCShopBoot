@@ -29,8 +29,9 @@ public class KakaoDaoImpl implements KakaoDao {
     }
 
     public Kakao findkakao(HashMap<String, Object> userInfo) throws Exception {
-        System.out.println("RN:"+userInfo.get("nickname"));
-        System.out.println("RE:"+userInfo.get("email"));
+        System.out.println("K_name:"+userInfo.get("nickname"));
+        System.out.println("K_mail:"+userInfo.get("email"));
+        System.out.println("K_phone"+userInfo.get("kphone"));
         return sqlSession.selectOne("KakaoMapper.findKakao", userInfo);
     }
 

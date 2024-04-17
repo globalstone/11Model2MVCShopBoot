@@ -43,7 +43,7 @@ public class KakaoServiceImpl implements KakaoService {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
-            sb.append("&client_id=8df753a4b334db7b6d9d4824b176caf5");  //본인이 발급받은 key
+            sb.append("&client_id=cec50764919801119a69066d40036533");  //본인이 발급받은 key
             sb.append("&redirect_uri=http://192.168.0.17:8080/kakao/login&response_type=code");     // 본인이 설정해 놓은 경로
             sb.append("&code=" + authorize_code);
             System.out.println("authorize_code : " + authorize_code);
@@ -119,13 +119,20 @@ public class KakaoServiceImpl implements KakaoService {
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
+
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
+            String kphone = kakao_account.getAsJsonObject().get("phone_number").getAsString();
+
+
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+            userInfo.put("kphone",kphone);
             insert.setK_name(nickname);
             insert.setK_email(email);
+            insert.setK_phone(kphone);
+
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
