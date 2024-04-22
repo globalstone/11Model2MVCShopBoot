@@ -12,10 +12,10 @@ import com.model2.mvc.service.domain.User;
 import com.model2.mvc.service.user.UserDao;
 
 
-//==> È¸¿ø°ü¸® DAO CRUD ±¸Çö
+//==> íšŒì›ê´€ë¦¬ DAO CRUD êµ¬í˜„
 @Repository("userDaoImpl")
 public class UserDaoImpl implements UserDao{
-	
+
 	///Field
 	@Autowired
 	@Qualifier("sqlSessionTemplate")
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao{
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-	
+
 	///Constructor
 	public UserDaoImpl() {
 		System.out.println(this.getClass());
@@ -37,7 +37,7 @@ public class UserDaoImpl implements UserDao{
 	public User getUser(String userId) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUser", userId);
 	}
-	
+
 	public void updateUser(User user) throws Exception {
 		sqlSession.update("UserMapper.updateUser", user);
 	}
@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.selectList("UserMapper.getUserList", search);
 	}
 
-	// °Ô½ÃÆÇ Page Ã³¸®¸¦ À§ÇÑ ÀüÃ¼ Row(totalCount)  return
+	// ê²Œì‹œíŒ Page ì²˜ë¦¬ë¥¼ ìœ„í•œ ì „ì²´ Row(totalCount)  return
 	public int getTotalCount(Search search) throws Exception {
 		return sqlSession.selectOne("UserMapper.getTotalCount", search);
 	}

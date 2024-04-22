@@ -211,4 +211,11 @@ public class UserController {
 		System.out.println("숫자 확인용 : " +checkNum);
 		return checkNum;
 	}
+
+	//문자 인증
+	@PostMapping("/memberPhoneCheck")
+	public @ResponseBody String memberPhoneCheck(@RequestParam(value="to") String to) throws Exception {
+
+		return userService.PhoneNumberCheck(to);
+	}
 }

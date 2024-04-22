@@ -1,3 +1,4 @@
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page pageEncoding="UTF-8"%>
 
@@ -44,6 +45,44 @@
 
 	<!-- JavaScript -->
 	<script type="text/javascript">
+
+		$(document).ready(function() {
+			$('#memberPhoneCheck').click(function () {
+
+				var phone1 = $('#phone1').val();
+				var phone2 = $('#phone2').val();
+				var phone3 = $('#phone3').val();
+				var memberPhone = phone1 + phone2 + phone3;
+
+
+				var to = $('input[name="memberPhone"]').val();
+				$.ajax({
+					url: "/user/memberPhoneCheck",
+					type: "POST",
+					data: "to=" + memberPhone,
+					dataType: "json",
+					success: function (data) {
+						const checkNum = data;
+						alert('checkNum:' + checkNum);
+
+						//인증하기 버튼 클릭 이벤트
+						$('#certifyCheck').click(function () {
+							const userNum = $('input[name="memberPhoneCertify"]').val();
+							if (checkNum == userNum) {
+								alert('인증 성공하였습니다.');
+							} else {
+								alert('인증 실패하였습니다. 다시 입력해주세요.');
+							}
+						});
+
+					},
+					error: function () {
+						alert("에러")
+					}
+				});
+			});
+		});
+
 
 		// "가입" 이벤트 연결
 		$(function () {
@@ -352,11 +391,13 @@
 			</div>
 			<div class="col-sm-2">
 				<input type="text" class="form-control" id="phone3" name="phone3" placeholder="번호">
+				<input type="button" id="memberPhoneCheck" class="btn memberPhoneBtn active" value="인증번호 전송">
 			</div>
+				<input type="text" name="memberPhoneCertify" class="phoneNum">
+				<input type="button" id="certifyCheck" class="btn memberPhoneBtn" value="인증하기">
 			</div>
 			<input type="hidden" name="phone"  />
 		</div>
-
 
 	<div class="form-group">
 		<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>

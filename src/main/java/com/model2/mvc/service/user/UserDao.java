@@ -6,9 +6,9 @@ import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.User;
 
 
-//==> È¸¿ø°ü¸®¿¡¼­ CRUD Ãß»óÈ­/Ä¸½¶È­ÇÑ DAO Interface Definition
+//==> íšŒì›ê´€ë¦¬ì—ì„œ CRUD ì¶”ìƒí™”/ìº¡ìŠí™”í•œ DAO Interface Definition
 public interface UserDao {
-	
+
 	// INSERT
 	public void addUser(User user) throws Exception ;
 
@@ -20,8 +20,8 @@ public interface UserDao {
 
 	// UPDATE
 	public void updateUser(User user) throws Exception ;
-	
-	// °Ô½ÃÆÇ Page Ã³¸®¸¦ À§ÇÑ ÀüÃ¼Row(totalCount)  return
+
+	// ê²Œì‹œíŒ Page ì²˜ë¦¬ë¥¼ ìœ„í•œ ì „ì²´Row(totalCount)  return
 	public int getTotalCount(Search search) throws Exception ;
-	
+
 }

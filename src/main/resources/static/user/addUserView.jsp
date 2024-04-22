@@ -1,3 +1,4 @@
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=EUC-KR" %>
 <%@ page pageEncoding="EUC-KR"%>
 
@@ -42,6 +43,34 @@
 
 	<!-- JavaScript -->
 	<script type="text/javascript">
+		$('#memberPhoneCheck').click(function(){
+
+			var to = $('input[name="memberPhone"]').val();
+			$.ajax({
+				url : "/memberPhoneCheck",
+				type : "POST",
+				data : "to=" + to,
+				dataType : "json",
+				success : function(data) {
+					const checkNum = data;
+					alert('checkNum:'+ checkNum);
+
+					//인증하기 버튼 클릭 이벤트
+					$('#certifyCheck').click(function(){
+						const userNum = $('input[name="memberPhoneCertify"]').val();
+						if(checkNum == userNum){
+							alert('인증 성공하였습니다.');
+						}else {
+							alert('인증 실패하였습니다. 다시 입력해주세요.');
+						}
+					});
+
+				},
+				error : function() {
+					alert("에러")
+				}
+			});
+		});
 
 		// "가입" 이벤트 연결
 		$(function() {
@@ -220,28 +249,40 @@
 		</div>
 	</div>
 
-		<div class="form-group">
-			<label for="phone1" class="col-sm-offset-1 col-sm-3 control-label">휴대전화번호</label>
-			<div class ="row">
-			<div class="col-sm-2">
-				<select class="form-control" name="phone1" id="phone1">
-					<option value="010" >010</option>
-					<option value="011" >011</option>
-					<option value="016" >016</option>
-					<option value="018" >018</option>
-					<option value="019" >019</option>
-				</select>
-			</div>
-			<div class="col-sm-2">
-				<input type="text" class="form-control" id="phone2" name="phone2" placeholder="번호">
-			</div>
-			<div class="col-sm-2">
-				<input type="text" class="form-control" id="phone3" name="phone3" placeholder="번호">
-			</div>
-			</div>
-			<input type="hidden" name="phone"  />
-		</div>
+<%--		<div class="form-group">--%>
+<%--			<label for="phone1" class="col-sm-offset-1 col-sm-3 control-label">휴대전화번호</label>--%>
+<%--			<div class ="row">--%>
+<%--			<div class="col-sm-2">--%>
+<%--				<select class="form-control" name="phone1" id="phone1">--%>
+<%--					<option value="010" >010</option>--%>
+<%--					<option value="011" >011</option>--%>
+<%--					<option value="016" >016</option>--%>
+<%--					<option value="018" >018</option>--%>
+<%--					<option value="019" >019</option>--%>
+<%--				</select>--%>
+<%--			</div>--%>
+<%--			<div class="col-sm-2">--%>
+<%--				<input type="text" class="form-control" id="phone2" name="phone2" placeholder="번호">--%>
+<%--			</div>--%>
+<%--			<div class="col-sm-2">--%>
+<%--				<input type="text" class="form-control" id="phone3" name="phone3" placeholder="번호">--%>
+<%--			</div>--%>
+<%--			</div>--%>
+<%--			<input type="hidden" name="phone"  />--%>
+<%--		</div>--%>
 
+		<div class="form-group phoneCertifyDiv">
+			<label class="inputTitle">휴대폰 번호</label><br>
+			<div class="phoneNum-formgroup">
+				<input th:if="${memberPhone != null}" type="text" name="memberPhone" class="phoneNum" readonly th:value="${memberPhone}">
+				<input th:th:unless="${memberPhone != null}" type="text" name="memberPhone" class="phoneNum" >
+				<input type="button" id="memberPhoneCheck" class="btn memberPhoneBtn active" value="인증번호 전송">
+			</div>
+			<div class="phoneNum-formgroup" id="phoneCertifyDiv">
+				<input type="text" name="memberPhoneCertify" class="phoneNum">
+				<input type="button" id="certifyCheck" class="btn memberPhoneBtn" value="인증하기">
+			</div>
+		</div>
 
 	<div class="form-group">
 		<label for="email" class="col-sm-offset-1 col-sm-3 control-label">이메일</label>
