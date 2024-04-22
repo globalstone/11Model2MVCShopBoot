@@ -12,6 +12,7 @@ import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.model2.mvc.common.Search;
@@ -23,6 +24,12 @@ import com.model2.mvc.service.user.UserDao;;
 //==> 회원관리 서비스 구현
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService{
+
+	@Value("${coolsms.apikey}")
+	private String apikey;
+
+	@Value("${coolsms.apisecret}")
+	private String apisecretkey;
 
 	///Field
 	@Autowired
@@ -74,10 +81,8 @@ public class UserServiceImpl implements UserService{
 	//휴대폰번호 인증문자 보내기
 	//휴대폰번호 인증문자 보내기
 	public String PhoneNumberCheck(String to) throws Exception {
-		String api_key = "NCS5XZ5DVOEJ7J0E";
-		String api_secret = "EIBQP24P5XLDKS0KJOMZAP0KPB421TKI";
 		String smsProvider = "https://api.coolsms.co.kr";
-		DefaultMessageService messageService = NurigoApp.INSTANCE.initialize(api_key, api_secret, smsProvider);
+		DefaultMessageService messageService = NurigoApp.INSTANCE.initialize(apikey, apisecretkey, smsProvider);
 
 		Random rand = new Random();
 		String numStr = "";
