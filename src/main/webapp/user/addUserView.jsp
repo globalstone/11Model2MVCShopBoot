@@ -46,6 +46,8 @@
 	<!-- JavaScript -->
 	<script type="text/javascript">
 
+		var checkNum; // 전역 변수로 선언
+
 		$(document).ready(function() {
 			$('#memberPhoneCheck').click(function () {
 
@@ -62,7 +64,7 @@
 					data: "to=" + memberPhone,
 					dataType: "json",
 					success: function (data) {
-						const checkNum = data;
+						checkNum = data;
 						alert('checkNum:' + checkNum);
 
 						//인증하기 버튼 클릭 이벤트
@@ -104,6 +106,7 @@
 			var pw_confirm = $("input[name='password2']").val();
 			var name = $("input[name='userName']").val();
 			var auth = $("input[name='authCode']").val();
+			var phone = $("input[name='memberPhoneCertify']").val();
 
 			if (id == null || id.length < 1) {
 				alert("아이디는 반드시 입력하셔야 합니다.");
@@ -111,6 +114,10 @@
 			}
 			if (pw == null || pw.length < 1) {
 				alert("패스워드는 반드시 입력하셔야 합니다.");
+				return;
+			}
+			if (phone == null || phone.length < 1 || phone != checkNum) {  // 인증 번호 검사 추가
+				alert("인증번호가 일치하지 않습니다.");
 				return;
 			}
 			if (pw_confirm == null || pw_confirm.length < 1) {
