@@ -5,9 +5,11 @@
 <html>
 <head>
 <title>상품 목록조회</title>
+	<script src = "https://cdn.iamport.kr/v1/iamport.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type = "text/javascript" src = "https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
 	<title>Carousel Template for Bootstrap</title>
 </head>

@@ -45,11 +45,15 @@ public class UserRestController {
 		System.out.println("/user/json/login : POST");
 		//Business Logic
 		System.out.println("::"+user);
-		User dbUser=userService.getUser(user.getUserId());
+		User dbUser = userService.getUser(user.getUserId());
 
-		if( user.getPassword().equals(dbUser.getPassword())){
-			session.setAttribute("user", dbUser);
+		if (dbUser != null && !user.getPassword().equals(dbUser.getPassword())) {
+			// 비밀번호가 일치하지 않으면 예외를 던집니다.
+			throw new Exception("비밀번호가 잘못되었습니다.");
 		}
+
+		session.setAttribute("user", dbUser);
+
 
 		return dbUser;
 	}

@@ -1,25 +1,25 @@
 package com.model2.mvc.common;
 
 
-//==>¸®½ºÆ®È­¸éÀ» ¸ðµ¨¸µ(Ãß»óÈ­/Ä¸½¶È­)ÇÑ Bean 
+//==>ë¦¬ìŠ¤íŠ¸í™”ë©´ì„ ëª¨ë¸ë§(ì¶”ìƒí™”/ìº¡ìŠí™”)í•œ Bean
 public class Search {
-	
+
 	///Field
 	private int currentPage;
 	private String searchCondition;
 	private String searchKeyword;
 	private int pageSize;
-	//==> ¸®½ºÆ®È­¸é currentPage¿¡ ÇØ´çÇÏ´Â È¸¿øÁ¤º¸¸¦ ROWNUM »ç¿ë SELECT À§ÇØ Ãß°¡µÈ Field 
-	//==> UserMapper.xml ÀÇ 
+	//==> ë¦¬ìŠ¤íŠ¸í™”ë©´ currentPageì— í•´ë‹¹í•˜ëŠ” íšŒì›ì •ë³´ë¥¼ ROWNUM ì‚¬ìš© SELECT ìœ„í•´ ì¶”ê°€ëœ Field
+	//==> UserMapper.xml ì˜
 	//==> <select  id="getUserList"  parameterType="search"	resultMap="userSelectMap">
-	//==> ÂüÁ¶
+	//==> ì°¸ì¡°
 	private int endRowNum;
 	private int startRowNum;
-	
+
 	///Constructor
 	public Search() {
 	}
-	
+
 	///Method
 	public int getPageSize() {
 		return pageSize;
@@ -27,7 +27,7 @@ public class Search {
 	public void setPageSize(int paseSize) {
 		this.pageSize = paseSize;
 	}
-	
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -41,19 +41,19 @@ public class Search {
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
 	}
-	
+
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
 	}
-	
-	//==> Select Query ½Ã ROWNUM ¸¶Áö¸· °ª 
+
+	//==> Select Query ì‹œ ROWNUM ë§ˆì§€ë§‰ ê°’
 	public int getEndRowNum() {
 		return getCurrentPage()*getPageSize();
 	}
-	//==> Select Query ½Ã ROWNUM ½ÃÀÛ °ª
+	//==> Select Query ì‹œ ROWNUM ì‹œìž‘ ê°’
 	public int getStartRowNum() {
 		return (getCurrentPage()-1)*getPageSize()+1;
 	}

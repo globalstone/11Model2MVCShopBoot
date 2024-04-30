@@ -1,18 +1,18 @@
 package com.model2.mvc.common;
 
 
-//==> PageNavigation À» À§ÇÑ Bean
+//==> PageNavigation ì„ ìœ„í•œ Bean
 public class Page {
-	
+
 	///Field
-	private int currentPage;		// ÇöÀçÆäÀÌÁö
-	private int totalCount;			// ÃÑ °Ô½Ã¹° ¼ö
-	private int pageUnit;			// ÇÏ´Ü ÆäÀÌÁö ¹øÈ£ È­¸é¿¡ º¸¿©Áö´Â ¼ö
-	private int pageSize;			// ÇÑ ÆäÀÌÁö´ç º¸¿©Áö´Â °Ô½Ã¹°¼ö
-	private int maxPage;			// ÃÖ´ë ÆäÀÌÁö ¹øÈ£(ÀüÃ¼ ÆäÀÌÁö)
-	private int beginUnitPage;	//È­¸é¿¡ º¸¿©Áö´Â ÆäÀÌÁö ¹øÈ£ÀÇ ÃÖ¼Ò¼ö
-	private int endUnitPage;		//È­¸é¿¡ º¸¿©Áö´Â ÆäÀÌÁö ¹øÈ£ÀÇ ÃÖ´ë¼ö
-	
+	private int currentPage;		// í˜„ìž¬íŽ˜ì´ì§€
+	private int totalCount;			// ì´ ê²Œì‹œë¬¼ ìˆ˜
+	private int pageUnit;			// í•˜ë‹¨ íŽ˜ì´ì§€ ë²ˆí˜¸ í™”ë©´ì— ë³´ì—¬ì§€ëŠ” ìˆ˜
+	private int pageSize;			// í•œ íŽ˜ì´ì§€ë‹¹ ë³´ì—¬ì§€ëŠ” ê²Œì‹œë¬¼ìˆ˜
+	private int maxPage;			// ìµœëŒ€ íŽ˜ì´ì§€ ë²ˆí˜¸(ì „ì²´ íŽ˜ì´ì§€)
+	private int beginUnitPage;	//í™”ë©´ì— ë³´ì—¬ì§€ëŠ” íŽ˜ì´ì§€ ë²ˆí˜¸ì˜ ìµœì†Œìˆ˜
+	private int endUnitPage;		//í™”ë©´ì— ë³´ì—¬ì§€ëŠ” íŽ˜ì´ì§€ ë²ˆí˜¸ì˜ ìµœëŒ€ìˆ˜
+
 	///Constructor
 	public Page() {
 	}
@@ -20,12 +20,12 @@ public class Page {
 		this.totalCount = totalCount;
 		this.pageUnit = pageUnit;
 		this.pageSize = pageSize;
-		
+
 		this.maxPage = (pageSize == 0) ? totalCount :  (totalCount-1)/pageSize +1;
 		this.currentPage = ( currentPage > maxPage) ? maxPage : currentPage;
-		
+
 		this.beginUnitPage = ( (currentPage-1) / pageUnit ) * pageUnit +1 ;
-		
+
 		if( maxPage <= pageUnit ){
 			this.endUnitPage = maxPage;
 		}else{
@@ -35,7 +35,7 @@ public class Page {
 			}
 		}
 	}
-	
+
 	///Mehtod
 	public int getCurrentPage() {
 		return currentPage;

@@ -78,8 +78,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	//휴대폰번호 인증문자 보내기
-	//휴대폰번호 인증문자 보내기
-	//휴대폰번호 인증문자 보내기
 	public String PhoneNumberCheck(String to) throws Exception {
 		String smsProvider = "https://api.coolsms.co.kr";
 		DefaultMessageService messageService = NurigoApp.INSTANCE.initialize(apikey, apisecretkey, smsProvider);
